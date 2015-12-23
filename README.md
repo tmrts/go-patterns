@@ -1,7 +1,11 @@
-# awesome-go-patterns
- A collection of Go design patterns/idioms
- 
-Current Patterns:
+# Go Patterns [![Awesome Widget]][Awesome] [![Travis Widget]][Travis] [![License Widget]][License]
+[Awesome Widget]: https://img.shields.io/badge/awesome-%E2%9C%93-ff69b4.svg?style=flat-square
+[Awesome]: https://github.com/sindresorhus/awesome
+[Travis Widget]: https://img.shields.io/travis/tmrts/awesome-google-cloud.svg?style=flat-square
+[Travis]: http://travis-ci.org/tmrts/go-patterns
+[License Widget]: https://img.shields.io/badge/license-Creative%20Commons%204.0-E91E63.svg?style=flat-square
+[License]: http://creativecommons.org/licenses/by/4.0/
+A curated collection of common patterns & idioms for Go.
 
 __Creational Patterns__:
 
@@ -48,3 +52,15 @@ __Behavioral Patterns__:
 | [strategy](strategy.go) | selectable operations over the same data |
 | [template](template.go) | an object imposes a structure but takes pluggable components |
 | [visitor](visitor.go) | invoke a callback for all items of a collection |
+ 
+__Concurrency Patterns__:
+
+| Pattern | Description |
+|:-------:| ----------- |
+| [semaphore](semaphore.go) | data type for controlling access, to a common resource|
+
+# License
+
+[![Creative Commons License](http://i.creativecommons.org/l/by/4.0/88x31.png)](http://creativecommons.org/licenses/by/4.0/)
+
+This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
