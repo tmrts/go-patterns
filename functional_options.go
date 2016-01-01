@@ -2,7 +2,7 @@ package main
 
 import "os"
 
-type arguments struct {
+type Arguments struct {
 	UID         int
 	GID         int
 	Flags       int
@@ -10,35 +10,35 @@ type arguments struct {
 	Permissions os.FileMode
 }
 
-type argument func(*arguments)
+type Argument func(*Arguments)
 
-func UID(userID int) argument {
-	return func(args *arguments) {
+func UID(userID int) Argument {
+	return func(args *Arguments) {
 		args.UID = userID
 	}
 }
 
-func GID(groupID int) argument {
-	return func(args *arguments) {
+func GID(groupID int) Argument {
+	return func(args *Arguments) {
 		args.GID = groupID
 	}
 }
 
-func Contents(c string) argument {
-	return func(args *arguments) {
+func Contents(c string) Argument {
+	return func(args *Arguments) {
 		args.Contents = c
 	}
 }
 
-func Permissions(perms os.FileMode) argument {
-	return func(args *arguments) {
+func Permissions(perms os.FileMode) Argument {
+	return func(args *Arguments) {
 		args.Permissions = perms
 	}
 }
 
-func New(filepath string, setters ...argument) error {
-	// Default arguments
-	args := &arguments{
+func New(filepath string, setters ...Argument) error {
+	// Default Arguments
+	args := &Arguments{
 		UID:         os.Getuid(),
 		GID:         os.Getgid(),
 		Contents:    "",
