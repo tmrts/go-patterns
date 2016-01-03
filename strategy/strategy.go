@@ -1,6 +1,4 @@
-package main
-
-import "fmt"
+package strategy
 
 type Operator interface {
 	Apply(int, int) int
@@ -24,16 +22,4 @@ type Addition struct{}
 
 func (Addition) Apply(lval, rval int) int {
 	return lval + rval
-}
-
-func main() {
-	mult := Operation{Multiplication{}}
-
-	// Outputs 15
-	fmt.Println(mult.Operate(3, 5))
-
-	pow := Operation{Addition{}}
-
-	// Outputs 8
-	fmt.Println(pow.Operate(3, 5))
 }
