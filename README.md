@@ -11,93 +11,89 @@
 [License]: http://creativecommons.org/licenses/by/4.0/
 A curated collection of idiomatic design & application patterns for Go language.
 
-For use cases please see the test files (files suffixed with _test).
-
 __Creational Patterns__:
 
 | Pattern | Description |
 |:-------:| ----------- |
-| [Abstract Factory](abstract_factory.go) | use a generic function with specific factories |
-| [Singleton](singleton/singleton.go) | Restricts instantiation of a class to one object |
-| [Builder](builder/builder.go) | instead of using multiple constructors, builder object receives parameters and returns constructed objects |
-| [Factory Method](factory_method.go) | delegate a specialized function/method to create instances |
-| [Lazy Evaluation](lazy_evaluation.go) | lazily-evaluated property pattern in Go |
+| [Abstract Factory](abstract_factory.go) | Provides an interface for creating families of releated objects |
+| [Builder](builder/builder.go) | Builds a complex object using simple objects |
+| [Factory Method](factory_method.go) | Defers instantiation of an object to a specialized function for creating instances |
 | [Object Pool](object_pool/pool.go) | Instantiates and maintains a group of objects instances of the same type |
+| [Singleton](singleton/singleton.go) | Restricts instantiation of a class to one object |
 
 __Structural Patterns__:
 
 | Pattern | Description |
 |:-------:| ----------- |
-| [Adapter](adapter.go) | adapt one interface to another using a white-list |
-| [Bridge](bridge.go) | a client-provider middleman to soften interface changes |
-| [Composite](composite.go) | encapsulate and provide access to a number of different objects |
+| [Adapter](adapter.go) | Adapts otherwise incompatible interfaces to work together by adapting one to the other |
+| [Bridge](bridge.go) | Decouples an interface from its implementation so that the two can vary independently |
+| [Composite](composite.go) | Encapsulates and provides access to a number of different objects |
 | [Decorator](decorator.go) | Adds behavior to an object, statically or dynamically |
-| [Facade](facade.go) | use one class as an API to a number of others |
-| [Flyweight](flyweight.go) | transparently reuse existing instances of objects with similar/identical state |
-| [Model View Controller](mvc.go) | model<->view<->controller (non-strict relationships) |
-| [Proxy](proxy.go) | an object funnels operations to something else |
+| [Facade](facade.go) | Uses one class as an API to a number of others |
+| [Flyweight](flyweight.go) | Reuses existing instances of objects with similar/identical state to minimize resource usage |
+| [Model View Controller](mvc.go) | Divides an app into three interconnected parts to separate internal representation from presentation to user |
+| [Proxy](proxy.go) | Provides a surrogate for an object to control it's actions |
 
 __Behavioral Patterns__:
 
 | Pattern | Description |
 |:-------:| ----------- |
-| [Chain](chain.go) | apply a chain of successive handlers to try and process the data |
-| [Catalog](catalog.go) | general methods will call different specialized methods based on construction parameter |
-| [Chaining Method](chaining_method.go) | continue callback next object method |
-| [Command](command.go) | bundle a command and arguments to call later |
-| [Mediator](mediator.go) | an object that knows how to connect other objects and act as a proxy |
-| [Memento](memento.go) | generate an opaque token that can be used to go back to a previous state |
-| [Observer](observer.go) | provide a callback for notification of events/changes to data |
-| [Registry](registry.go) | keep track of all subclasses of a given class |
-| [Specification](specification.go) |  business rules can be recombined by chaining the business rules together using boolean logic |
-| [State](state.go) | logic is organized into a discrete number of potential states and the next state that can be transitioned to |
-| [Strategy](strategy/strategy.go) | Encapsulates an algorithm inside a struct |
-| [Template](template.go) | an object imposes a structure but takes pluggable components |
-| [Visitor](visitor.go) | invoke a callback for all items of a collection |
+| [Chain of Responsibility](chain_of_responsibility.go) | Avoids coupling a sender to receiver by giving more than object a chance to handle the request |
+| [Command](command.go) | Bundles a command and arguments to call later |
+| [Mediator](mediator.go) | Connects objects and acts as a proxy |
+| [Memento](memento.go) | Generate an opaque token that can be used to go back to a previous state |
+| [Observer](observer.go) | Provide a callback for notification of events/changes to data |
+| [Registry](registry.go) | Keep track of all subclasses of a given class |
+| [State](state.go) | Encapsulates varying behavior for the same object based on its internal state |
+| [Strategy](strategy/strategy.go) | Enables an algorithm's behavior to be selected at runtime |
+| [Template](template.go) | Defines a skeleton class which defers some methods to subclasses |
+| [Visitor](visitor.go) | Separates an algorithm from an object on which it operates |
  
 __Synchronization Patterns__:
 
 | Pattern | Description |
 |:-------:| ----------- |
-| [Lock/Mutex](mutex/mutex.go) | Enforces mutual exclusion limit on accessing a resource |
-| [Read-Write Lock](read_write_lock.go) | |
-| [Condition Variable](condition_variable.go) | |
+| [Condition Variable](condition_variable.go) | Provides a mechanism for threads to temporarily give up access in order to wait for some condition |
+| [Lock/Mutex](mutex/mutex.go) | Enforces mutual exclusion limit on a resource to gain exclusive access |
 | [Monitor](monitor.go) | Combination of mutex and condition variable patterns |
+| [Read-Write Lock](read_write_lock.go) | Allows parallel read access, but only exclusive access on write operations to a resource |
 | [Semaphore](semaphore/semaphore.go) | Allows controlling access to a common resource |
 
 __Concurrency Patterns__:
 
 | Pattern | Description |
 |:-------:| ----------- |
-| [Scheduler](scheduler.go) | |
-| [Barrier](barrier.go) | |
-| [Producer Consumer](producer_consumer.go) | |
-| [Futures](future.go) | |
-| [Broadcast](broadcast.go) | |
-| [Multiplex](multiplex.go) | |
-| [Generators](generator.go) | |
-| [Coroutines](coroutine/coroutine.go) | |
-| [Parallelism](parallelism/md5.go) | Completes large number of indenpendent tasks |
+| [N-Barrier](barrier.go) | Prevents a process from proceeding until all N processes reach to the barrier |
 | [Bounded Parallelism](bounded_parallelism/md5.go) | Completes large number of indenpendent tasks with resource limits |
+| [Broadcast](broadcast.go) | Transfers a message to all recipients simultaneously |
+| [Coroutines](coroutine/coroutine.go) | Subroutines that allow suspending and resuming execution at certain locations |
+| [Generators](generator.go) | Yields a sequence of values one at a time |
+| [Reactor](reactor.go) | Demultiplexes service requests delivered concurrently to a service handler and dispatches them syncronously to the associated request handlers |
+| [Parallelism](parallelism/md5.go) | Completes large number of indenpendent tasks |
+| [Producer Consumer](producer_consumer.go) | Separates tasks from task executions |
+| [Scheduler](scheduler.go) | Orchestrates steps to be performed as part of a task |
 
 __Messaging Patterns__:
+
+| Pattern | Description |
+|:-------:| ----------- |
 | [Fan-In](fan/fan_in.go) | Funnels tasks to a work sink (e.g. server) |
 | [Fan-Out](fan/fan_out.go) | Distributes tasks amongs workers |
+| [Futures & Promises](futures_promises.go) | Acts as a place-holder of a result that is initally unknown for synchronization purposes |
 | [Publish/Subscribe](publish_subscribe.go) | Passes information to a collection of recipients who subscribed to a topic |
-| [Request & Reply](fan) | |
-| [Push & Pull](fan) | |
+| [Push & Pull](push_pull.go) | Distributes messages to multiple workers, arranged in a pipeline |
 
 
 __Stability Patterns__:
 
 | Pattern | Description |
 |:-------:| ----------- |
-| [Bulkheads](bulkhead.go) | |
-| [Circuit Breaker](circuitbreaker/circuit_breaker.go) | Stops the flow of the requests when requests are likely to fail |
-| [Deadline](deadline.go) | |
-| [Fail Fast](fail_fast.go) | |
-| [Handshaking](handshaking.go) | |
-| [Steady State](steady_state.go) | |
+| [Bulkheads](bulkhead.go)  | Enforces a principle of failure containment (i.e. prevents cascading failures) |
+| [Circuit-Breaker](circuitbreaker/circuit_breaker.go) | Stops the flow of the requests when requests are likely to fail |
+| [Deadline](deadline.go) | Allows clients to stop waiting for a response once the probability of response becomes low (e.g. after waiting 10 seconds for a page refresh)|
+| [Fail-Fast](fail_fast.go) | Checks the availability of required resources at the start of a request and fails if the requirements are not satisfied |
+| [Handshaking](handshaking.go) | Asks a component if it can take any more load, if it can't the request is declined |
+| [Steady-State](steady_state.go) | For every service that accumulates a resource, some other service must recycle that resource |
 
 __Profiling Patterns__:
 
@@ -115,7 +111,7 @@ __Anti-Patterns__:
 
 | Pattern | Description |
 |:-------:| ----------- |
-| [Cascading Failures]() | |
+| [Cascading Failures]() | A failure in a system of interconnected parts in which the failure of a part causes a domino effect |
 
 __Other Patterns__:
 
