@@ -83,7 +83,6 @@ __Messaging Patterns__:
 | [Publish/Subscribe](publish_subscribe.go) | Passes information to a collection of recipients who subscribed to a topic |
 | [Push & Pull](push_pull.go) | Distributes messages to multiple workers, arranged in a pipeline |
 
-
 __Stability Patterns__:
 
 | Pattern | Description |
