@@ -77,8 +77,8 @@ __Messaging Patterns__:
 
 | Pattern | Description |
 |:-------:| ----------- |
-| [Fan-In](fan/fan_in.go) | Funnels tasks to a work sink (e.g. server) |
-| [Fan-Out](fan/fan_out.go) | Distributes tasks amongs workers |
+| [Fan-In](messaging/fan_in.md) | Funnels tasks to a work sink (e.g. server) |
+| [Fan-Out](messaging/fan_out.md) | Distributes tasks amongs workers (e.g. producer) |
 | [Futures & Promises](futures_promises.go) | Acts as a place-holder of a result that is initally unknown for synchronization purposes |
 | [Publish/Subscribe](messaging/publish_subscribe.md) | Passes information to a collection of recipients who subscribed to a topic |
 | [Push & Pull](push_pull.go) | Distributes messages to multiple workers, arranged in a pipeline |
