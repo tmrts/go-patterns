@@ -80,7 +80,7 @@ __Messaging Patterns__:
 | [Fan-In](fan/fan_in.go) | Funnels tasks to a work sink (e.g. server) |
 | [Fan-Out](fan/fan_out.go) | Distributes tasks amongs workers |
 | [Futures & Promises](futures_promises.go) | Acts as a place-holder of a result that is initally unknown for synchronization purposes |
-| [Publish/Subscribe](publish_subscribe.go) | Passes information to a collection of recipients who subscribed to a topic |
+| [Publish/Subscribe](messaging/publish_subscribe.md) | Passes information to a collection of recipients who subscribed to a topic |
 | [Push & Pull](push_pull.go) | Distributes messages to multiple workers, arranged in a pipeline |
 
 __Stability Patterns__:
