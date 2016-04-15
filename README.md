@@ -28,7 +28,7 @@ __Structural Patterns__:
 | [Adapter](adapter.go) | Adapts otherwise incompatible interfaces to work together by adapting one to the other |
 | [Bridge](bridge.go) | Decouples an interface from its implementation so that the two can vary independently |
 | [Composite](composite.go) | Encapsulates and provides access to a number of different objects |
-| [Decorator](decorator.go) | Adds behavior to an object, statically or dynamically |
+| [Decorator](structural/decorator.md) | Adds behavior to an object, statically or dynamically |
 | [Facade](facade.go) | Uses one class as an API to a number of others |
 | [Flyweight](flyweight.go) | Reuses existing instances of objects with similar/identical state to minimize resource usage |
 | [Model View Controller](mvc.go) | Divides an app into three interconnected parts to separate internal representation from presentation to user |
