@@ -57,7 +57,7 @@ __Synchronization Patterns__:
 | [Lock/Mutex](mutex/mutex.go) | Enforces mutual exclusion limit on a resource to gain exclusive access |
 | [Monitor](monitor.go) | Combination of mutex and condition variable patterns |
 | [Read-Write Lock](read_write_lock.go) | Allows parallel read access, but only exclusive access on write operations to a resource |
-| [Semaphore](semaphore/semaphore.go) | Allows controlling access to a common resource |
+| [Semaphore](synchronization/semaphore.md) | Allows controlling access to a common resource |
 
 __Concurrency Patterns__:
 
