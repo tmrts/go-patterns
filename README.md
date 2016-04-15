@@ -45,7 +45,7 @@ __Behavioral Patterns__:
 | [Observer](observer.go) | Provide a callback for notification of events/changes to data |
 | [Registry](registry.go) | Keep track of all subclasses of a given class |
 | [State](state.go) | Encapsulates varying behavior for the same object based on its internal state |
-| [Strategy](strategy/strategy.go) | Enables an algorithm's behavior to be selected at runtime |
+| [Strategy](behavioral/strategy.md) | Enables an algorithm's behavior to be selected at runtime |
 | [Template](template.go) | Defines a skeleton class which defers some methods to subclasses |
 | [Visitor](visitor.go) | Separates an algorithm from an object on which it operates |
  
