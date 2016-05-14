@@ -19,7 +19,7 @@ __Creational Patterns__:
 | [Builder](builder/builder.go) | Builds a complex object using simple objects |
 | [Factory Method](factory_method.go) | Defers instantiation of an object to a specialized function for creating instances |
 | [Object Pool](object_pool/pool.go) | Instantiates and maintains a group of objects instances of the same type |
-| [Singleton](singleton/singleton.go) | Restricts instantiation of a class to one object |
+| [Singleton](creational/singleton.md) | Restricts instantiation of a type to one object |
 
 __Structural Patterns__:
 
@@ -29,7 +29,7 @@ __Structural Patterns__:
 | [Bridge](bridge.go) | Decouples an interface from its implementation so that the two can vary independently |
 | [Composite](composite.go) | Encapsulates and provides access to a number of different objects |
 | [Decorator](structural/decorator.md) | Adds behavior to an object, statically or dynamically |
-| [Facade](facade.go) | Uses one class as an API to a number of others |
+| [Facade](facade.go) | Uses one type as an API to a number of others |
 | [Flyweight](flyweight.go) | Reuses existing instances of objects with similar/identical state to minimize resource usage |
 | [Model View Controller](mvc.go) | Divides an app into three interconnected parts to separate internal representation from presentation to user |
 | [Proxy](proxy.go) | Provides a surrogate for an object to control it's actions |
