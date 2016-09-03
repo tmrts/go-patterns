@@ -42,7 +42,7 @@ __Behavioral Patterns__:
 | [Command](command.go) | Bundles a command and arguments to call later |
 | [Mediator](mediator.go) | Connects objects and acts as a proxy |
 | [Memento](memento.go) | Generate an opaque token that can be used to go back to a previous state |
-| [Observer](observer.go) | Provide a callback for notification of events/changes to data |
+| [Observer](behavioral/observer.md) | Provide a callback for notification of events/changes to data |
 | [Registry](registry.go) | Keep track of all subclasses of a given class |
 | [State](state.go) | Encapsulates varying behavior for the same object based on its internal state |
 | [Strategy](behavioral/strategy.md) | Enables an algorithm's behavior to be selected at runtime |
