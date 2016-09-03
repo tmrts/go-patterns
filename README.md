@@ -64,12 +64,12 @@ __Concurrency Patterns__:
 | Pattern | Description |
 |:-------:| ----------- |
 | TODO: [N-Barrier](concurrency/barrier.md) | Prevents a process from proceeding until all N processes reach to the barrier |
-| [Bounded Parallelism](concurrency/bounded_parallelism.md) | Completes large number of indenpendent tasks with resource limits |
+| [Bounded Parallelism](concurrency/bounded_parallelism.go) | Completes large number of indenpendent tasks with resource limits |
 | TODO: [Broadcast](concurrency/broadcast.md) | Transfers a message to all recipients simultaneously |
 | TODO: [Coroutines](concurrency/coroutine.md) | Subroutines that allow suspending and resuming execution at certain locations |
 | TODO: [Generators](concurrency/generator.md) | Yields a sequence of values one at a time |
 | TODO: [Reactor](concurrency/reactor.md) | Demultiplexes service requests delivered concurrently to a service handler and dispatches them syncronously to the associated request handlers |
-| [Parallelism](concurrency/parallelism.md) | Completes large number of indenpendent tasks |
+| [Parallelism](concurrency/parallelism.go) | Completes large number of indenpendent tasks |
 | TODO: [Producer Consumer](concurrency/producer_consumer.md) | Separates tasks from task executions |
 | TODO: [Scheduler](concurrency/scheduler.md) | Orchestrates steps to be performed as part of a task |
 
@@ -88,7 +88,7 @@ __Stability Patterns__:
 | Pattern | Description |
 |:-------:| ----------- |
 | TODO: [Bulkheads](stability/bulkhead.md)  | Enforces a principle of failure containment (i.e. prevents cascading failures) |
-| [Circuit-Breaker](stability/circuit_breaker.go) | Stops the flow of the requests when requests are likely to fail |
+| [Circuit-Breaker](stability/circuitbreaker.go) | Stops the flow of the requests when requests are likely to fail |
 | TODO: [Deadline](stability/deadline.md) | Allows clients to stop waiting for a response once the probability of response becomes low (e.g. after waiting 10 seconds for a page refresh)|
 | TODO: [Fail-Fast](stability/fail_fast.md) | Checks the availability of required resources at the start of a request and fails if the requirements are not satisfied |
 | TODO: [Handshaking](stability/handshaking.md) | Asks a component if it can take any more load, if it can't the request is declined |
