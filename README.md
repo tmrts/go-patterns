@@ -88,7 +88,7 @@ __Stability Patterns__:
 | Pattern | Description |
 |:-------:| ----------- |
 | TODO: [Bulkheads](stability/bulkhead.md)  | Enforces a principle of failure containment (i.e. prevents cascading failures) |
-| [Circuit-Breaker](stability/circuitbreaker.go) | Stops the flow of the requests when requests are likely to fail |
+| [Circuit-Breaker](stability/circuit_breaker.md) | Stops the flow of the requests when requests are likely to fail |
 | TODO: [Deadline](stability/deadline.md) | Allows clients to stop waiting for a response once the probability of response becomes low (e.g. after waiting 10 seconds for a page refresh)|
 | TODO: [Fail-Fast](stability/fail_fast.md) | Checks the availability of required resources at the start of a request and fails if the requirements are not satisfied |
 | TODO: [Handshaking](stability/handshaking.md) | Asks a component if it can take any more load, if it can't the request is declined |
