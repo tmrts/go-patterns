@@ -18,7 +18,7 @@ __Creational Patterns__:
 | TODO: [Abstract Factory](creational/abstract_factory.md) | Provides an interface for creating families of releated objects |
 | TODO: [Builder](creational/builder.md) | Builds a complex object using simple objects |
 | TODO: [Factory Method](creational/factory.md) | Defers instantiation of an object to a specialized function for creating instances |
-| TODO: [Object Pool](creational/object_pool.gp) | Instantiates and maintains a group of objects instances of the same type |
+| [Object Pool](creational/object_pool.md) | Instantiates and maintains a group of objects instances of the same type |
 | [Singleton](creational/singleton.md) | Restricts instantiation of a type to one object |
 
 __Structural Patterns__:
@@ -64,12 +64,12 @@ __Concurrency Patterns__:
 | Pattern | Description |
 |:-------:| ----------- |
 | TODO: [N-Barrier](concurrency/barrier.md) | Prevents a process from proceeding until all N processes reach to the barrier |
-| [Bounded Parallelism](concurrency/bounded_parallelism.go) | Completes large number of indenpendent tasks with resource limits |
+| [Bounded Parallelism](concurrency/bounded_parallelism.md) | Completes large number of independent tasks with resource limits |
 | TODO: [Broadcast](concurrency/broadcast.md) | Transfers a message to all recipients simultaneously |
 | TODO: [Coroutines](concurrency/coroutine.md) | Subroutines that allow suspending and resuming execution at certain locations |
 | TODO: [Generators](concurrency/generator.md) | Yields a sequence of values one at a time |
 | TODO: [Reactor](concurrency/reactor.md) | Demultiplexes service requests delivered concurrently to a service handler and dispatches them syncronously to the associated request handlers |
-| [Parallelism](concurrency/parallelism.go) | Completes large number of indenpendent tasks |
+| [Parallelism](concurrency/parallelism.md) | Completes large number of independent tasks |
 | TODO: [Producer Consumer](concurrency/producer_consumer.md) | Separates tasks from task executions |
 | TODO: [Scheduler](concurrency/scheduler.md) | Orchestrates steps to be performed as part of a task |
 
@@ -78,8 +78,8 @@ __Messaging Patterns__:
 | Pattern | Description |
 |:-------:| ----------- |
 | [Fan-In](messaging/fan_in.md) | Funnels tasks to a work sink (e.g. server) |
-| [Fan-Out](messaging/fan_out.md) | Distributes tasks amongs workers (e.g. producer) |
-| TODO: [Futures & Promises](messaging/futures_promises.md) | Acts as a place-holder of a result that is initally unknown for synchronization purposes |
+| [Fan-Out](messaging/fan_out.md) | Distributes tasks among workers (e.g. producer) |
+| TODO: [Futures & Promises](messaging/futures_promises.md) | Acts as a place-holder of a result that is initially unknown for synchronization purposes |
 | [Publish/Subscribe](messaging/publish_subscribe.md) | Passes information to a collection of recipients who subscribed to a topic |
 | TODO: [Push & Pull](messaging/push_pull.md) | Distributes messages to multiple workers, arranged in a pipeline |
 
