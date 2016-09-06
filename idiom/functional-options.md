@@ -1,10 +1,12 @@
 # Functional Options
+
 Functional options are a method of implementing clean/eloquent APIs in Go.
 Options implemented as a function set the state of that option.
 
 ## Implementation
 
 ### Options
+
 ```go
 package file
 
@@ -44,6 +46,7 @@ func Permissions(perms os.FileMode) Option {
 ```
 
 ### Constructor
+
 ```go
 package file
 
@@ -77,6 +80,7 @@ func New(filepath string, setters ...Option) error {
 ```
 
 ## Usage
+
 ```go
 emptyFile, err := file.New("/tmp/empty.txt")
 if err != nil {

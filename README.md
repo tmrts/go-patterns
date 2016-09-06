@@ -104,7 +104,7 @@ __Idioms__:
 
 | Pattern | Description |
 |:-------:| ----------- |
-| [Functional Options](idiom/functional_options.md) | Allows creating clean APIs with sane defaults and idiomatic overrides |
+| [Functional Options](idiom/functional-options.md) | Allows creating clean APIs with sane defaults and idiomatic overrides |
 
 __Anti-Patterns__:
 
