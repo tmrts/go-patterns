@@ -1,7 +1,9 @@
-#Singleton Pattern
+# Singleton Pattern
+
 Singleton creational design pattern restricts the instantiation of a type to a single object.
 
 ## Implementation
+
 ```go
 package singleton
 
@@ -21,6 +23,7 @@ func New() *singleton {
 ```
 
 ## Usage
+
 ```go
 s := singleton.New()
 
@@ -28,8 +31,10 @@ s["this"] = "that"
 
 s2 := singleton.New()
 
-// s2["this"] == "that"
+fmt.Println("This is ", s2["this"])
+// This is that
 ```
 
 ## Rules of Thumb
+
 - Singleton pattern represents a global state and most of the time reduces testability.
