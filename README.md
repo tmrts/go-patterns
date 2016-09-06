@@ -42,7 +42,7 @@ __Behavioral Patterns__:
 | TODO: [Command](behavioral/command.md) | Bundles a command and arguments to call later |
 | TODO: [Mediator](behavioral/mediator.md) | Connects objects and acts as a proxy |
 | TODO: [Memento](behavioral/memento.md) | Generate an opaque token that can be used to go back to a previous state |
-| TODO: [Observer](behavioral/observer.md) | Provide a callback for notification of events/changes to data |
+| [Observer](behavioral/observer.md) | Provide a callback for notification of events/changes to data |
 | TODO: [Registry](behavioral/registry.md) | Keep track of all subclasses of a given class |
 | TODO: [State](behavioral/state.md) | Encapsulates varying behavior for the same object based on its internal state |
 | [Strategy](behavioral/strategy.md) | Enables an algorithm's behavior to be selected at runtime |
