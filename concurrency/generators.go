@@ -4,41 +4,40 @@ import (
 	"fmt"
 )
 
-//implement generator by closure
-func FibnacciClosure() func() (ret int) {
+//FibonacciClosure implements fibonacci number generatoin using closure
+func FibonacciClosure() func() int {
 	a, b := 0, 1
-	return func() (ret int) {
-		ret = b
+	return func() int {
 		a, b = b, a+b
-		return
+		return a
 	}
 }
 
-//implement generator by channel
-func FibnacciChan(n int) chan int {
-	ret := make(chan int)
+//FibonacciChan implements fibonacci number generatoin using channel
+func FibonacciChan(n int) chan int {
+	c := make(chan int)
 
 	go func() {
 		a, b := 0, 1
 		for i := 0; i < n; i++ {
-			ret <- b
+			c <- b
 			a, b = b, a+b
 		}
-		close(ret)
+		close(c)
 	}()
 
-	return ret
+	return c
 }
 
 func main() {
 	//closure
-	nextFib := FibnacciClosure()
+	nextFib := FibonacciClosure()
 	for i := 0; i < 20; i++ {
 		fmt.Println(nextFib())
 	}
 
 	//channel
-	for i := range FibnacciChan(20) {
+	for i := range FibonacciChan(20) {
 		fmt.Println(i)
 	}
 }
