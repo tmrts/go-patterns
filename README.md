@@ -67,7 +67,7 @@ __Concurrency Patterns__:
 | [Bounded Parallelism](concurrency/bounded_parallelism.md) | Completes large number of independent tasks with resource limits |
 | TODO: [Broadcast](concurrency/broadcast.md) | Transfers a message to all recipients simultaneously |
 | TODO: [Coroutines](concurrency/coroutine.md) | Subroutines that allow suspending and resuming execution at certain locations |
-| TODO: [Generators](concurrency/generator.md) | Yields a sequence of values one at a time |
+| [Generators](concurrency/generator.md) | Yields a sequence of values one at a time |
 | TODO: [Reactor](concurrency/reactor.md) | Demultiplexes service requests delivered concurrently to a service handler and dispatches them syncronously to the associated request handlers |
 | [Parallelism](concurrency/parallelism.md) | Completes large number of independent tasks |
 | TODO: [Producer Consumer](concurrency/producer_consumer.md) | Separates tasks from task executions |
