@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-//FibonacciClosure implements fibonacci number generatoin using closure
+//FibonacciClosure implements fibonacci number generation using closure
 func FibonacciClosure() func() int {
 	a, b := 0, 1
 	return func() int {
@@ -13,7 +13,7 @@ func FibonacciClosure() func() int {
 	}
 }
 
-//FibonacciChan implements fibonacci number generatoin using channel
+//FibonacciChan implements fibonacci number generation using channel
 func FibonacciChan(n int) chan int {
 	c := make(chan int)
 
