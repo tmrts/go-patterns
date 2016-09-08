@@ -1,6 +1,15 @@
 package main
 
-import "container/list"
+import (
+	"container/list"
+	"errors"
+	"log"
+)
+
+var (
+	ErrNoMoreObject       = errors.New("no more object")
+	ErrNotEnoughPoolSpace = errors.New("not enough pool space")
+)
 
 type Object struct {
 	ID string
@@ -11,23 +20,19 @@ type Pool interface {
 	Return(*Object) error
 }
 
-type Allocate func() (Object, error)
+type Allocate func() (*Object, error)
 
 type implementation struct {
-	Size      int
-	SizeLimit int
-	Allocate  Allocate
-	Objects   map[Object]bool
-	FreeList  *list.List
+	Size     int
+	Allocate Allocate
+	FreeList *list.List
 }
 
-func New(initSize int, limit int, alloc Allocate) (*Pool, error) {
+func New(initSize int, alloc Allocate) (Pool, error) {
 	p := &implementation{
-		Size:      initSize,
-		SizeLimit: limit,
-		Allocate:  alloc,
-		Objects:   nil,
-		FreeList:  list.New(),
+		Size:     initSize,
+		Allocate: alloc,
+		FreeList: list.New(),
 	}
 
 	for i := 0; i < initSize; i++ {
@@ -36,37 +41,66 @@ func New(initSize int, limit int, alloc Allocate) (*Pool, error) {
 			return nil, err
 		}
 
-		p.FreeList.PushFront(&obj)
-
-		p.Objects[obj] = true
+		p.FreeList.PushFront(obj)
 	}
 
-	return nil
+	return p, nil
 }
 
 func (p *implementation) Borrow() (*Object, error) {
 	elem := p.FreeList.Front()
+	if elem == nil {
+		return nil, ErrNoMoreObject
+	}
+
 	obj := p.FreeList.Remove(elem)
 
-	p.Objects[obj] = false
+	o := obj.(*Object)
 
-	return obj, nil
+	return o, nil
 }
 
 func (p *implementation) Return(ref *Object) error {
-	list.PushBack(ref)
-
-	p.Objects[*ref] = true
-
+	if p.FreeList.Len() == p.Size {
+		return ErrNotEnoughPoolSpace
+	}
+	p.FreeList.PushBack(ref)
 	return nil
 }
 
 func main() {
-	p := New(0, 0, func() (Object, error) {
-		return []string{}
+	const poolSize = 3
+
+	p, _ := New(poolSize, func() (*Object, error) {
+		return &Object{}, nil
 	})
 
-	s, _ := p.Borrow()
-	s = append(s, "string")
-	_ = p.Return(s)
+	ob, err := p.Borrow()
+	if err != nil {
+		log.Fatal(err)
+	}
+	log.Printf("borrow a object from pool: %#v\n", *ob)
+
+	for i := 0; i < poolSize-1; i++ {
+		o, err := p.Borrow()
+		if err != nil {
+			log.Fatal(err)
+		}
+		log.Printf("borrow a object from pool: %#v\n", *o)
+	}
+
+	_, err = p.Borrow()
+	if err.Error() != ErrNoMoreObject.Error() {
+		log.Fatalf("expect: %v\n", ErrNoMoreObject)
+	}
+
+	p.Return(ob)
+	ob1, err := p.Borrow()
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	if ob != ob1 {
+		log.Fatal("expect the same object")
+	}
 }
