@@ -98,4 +98,4 @@ if err != nil {
 Relative links and source codeview that helps you understand how this pattern works and  can be extended to fit your needs:
 
 - [go-options](https://github.com/kataras/go-options)
-- [configuration.go:26](https://github.com/kataras/iris/blob/master/configuration.go#L26), [configuration.go:160](https://github.com/kataras/iris/blob/master/configuration.go#L160), [iris.go:202](https://github.com/kataras/iris/blob/master/iris.go#L202)
+- A web framework's flow: [configuration.go:26](https://github.com/kataras/iris/blob/master/configuration.go#L26), [configuration.go:160](https://github.com/kataras/iris/blob/master/configuration.go#L160), [iris.go:202](https://github.com/kataras/iris/blob/master/iris.go#L202), [iris.go:259](https://github.com/kataras/iris/blob/master/iris.go#L259)
