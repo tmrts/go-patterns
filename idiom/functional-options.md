@@ -92,3 +92,9 @@ if err != nil {
     panic(err)
 }
 ```
+
+## Packages
+
+Packages helps you understand how this pattern works:
+
+- [go-options](https://github.com/kataras/go-options)
