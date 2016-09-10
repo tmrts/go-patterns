@@ -25,7 +25,7 @@ func (o *Operation) Operate(leftValue, rightValue int) int {
 ```go
 type Addition struct{}
 
-func (Addition) Apply(lval, rval int) int {
+func (a Addition) Apply(lval, rval int) int {
 	return lval + rval
 }
 ```
