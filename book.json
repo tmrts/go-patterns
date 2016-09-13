@@ -1,0 +1,17 @@
+{
+    "plugins": [
+        "-search", 
+        "-lunr",
+        "github",
+        "edit-link"
+    ],
+    "pluginsConfig": {
+        "github": {
+            "url": "https://github.com/tmrts/go-patterns"
+        },
+        "edit-link": {
+            "base": "https://github.com/tmrts/go-patterns/edit/master/",
+            "label": ""
+        }
+    }
+}
