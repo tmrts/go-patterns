@@ -98,7 +98,7 @@ A curated collection of idiomatic design & application patterns for Go language.
 
 | Pattern | Description | Status |
 |:-------:|:----------- |:------:|
-| [Timing Functions](/profiling/timing.md) | Wraps a function and logs the execution | ✘ |
+| [Timing Functions](/profiling/timing.md) | Wraps a function and logs the execution | ✔ |
 
 ## Idioms
 
