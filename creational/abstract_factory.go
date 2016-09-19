@@ -75,10 +75,8 @@ func main() {
 	switch runtime.GOOS {
 	case "windows":
 		factory = &winFactory{}
-		break
 	case "darwin":
 		factory = &osxFactory{}
-		break
 	default:
 		factory = &otherOSFactory{}
 	}
