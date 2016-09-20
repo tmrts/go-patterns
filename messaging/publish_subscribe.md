@@ -27,7 +27,7 @@ type Subscription struct {
 }
 
 func (s *Subscription) Publish(msg Message) error {
-	if _, ok := s.ch; !ok {
+	if _, ok := <-s.ch; !ok {
 		return errors.New("Topic has been closed")
 	}
 
