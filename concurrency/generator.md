@@ -11,7 +11,7 @@ func Count(start int, end int) chan int {
     go func(ch chan int) {
         for i := start; i < end ; i++ {
             // Blocks on the operation
-            ch <- result
+            ch <- i
         }
 
 		close(ch)
