@@ -11,9 +11,9 @@ type singleton map[string]string
 
 var once sync.Once
 
-var instance *singleton
+var instance singleton
 
-func New() *singleton {
+func New() singleton {
 	once.Do(func() {
 		instance = make(singleton)
 	})
