@@ -5,7 +5,7 @@
     * [Abstract Factory](/creational/abstract_factory.md)
     * [Builder](/creational/builder.md)
     * [Factory Method](/creational/factory.md)
-    * [Object Pool](/creational/object_pool.md)
+    * [Object Pool](/creational/object-pool.md)
     * [Singleton](/creational/singleton.md)
   * [Structural Patterns](/README.md#structural-patterns)
     * [Adapter](/structural/adapter.md)
