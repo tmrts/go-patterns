@@ -51,7 +51,7 @@
     * [Push & Pull](/messaging/push_pull.md)
   * [Stability Patterns](/README.md#stability-patterns)
     * [Bulkheads](/stability/bulkhead.md)
-    * [Circuit-Breaker](/stability/circuit_breaker.md)
+    * [Circuit-Breaker](/stability/circuit-breaker.md)
     * [Deadline](/stability/deadline.md)
     * [Fail-Fast](/stability/fail_fast.md)
     * [Handshaking](/stability/handshaking.md)
