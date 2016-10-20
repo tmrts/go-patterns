@@ -99,4 +99,4 @@ func Breaker(c Circuit, failureThreshold uint32) Circuit {
 
 ## Related Works
 
-- [sony/gobreaker](https://github.com/sony/go-breaker) is a well-tested and intuitive circuit breaker implementation for real-world use cases.
+- [sony/gobreaker](https://github.com/sony/gobreaker) is a well-tested and intuitive circuit breaker implementation for real-world use cases.
