@@ -25,13 +25,11 @@ A curated collection of idiomatic design & application patterns for Go language.
 
 | Pattern | Description | Status |
 |:-------:|:----------- |:------:|
-| [Adapter](/structural/adapter.md) | Adapts otherwise incompatible interfaces to work together by adapting one to the other | ✘ |
 | [Bridge](/structural/bridge.md) | Decouples an interface from its implementation so that the two can vary independently | ✘ |
 | [Composite](/structural/composite.md) | Encapsulates and provides access to a number of different objects | ✘ |
 | [Decorator](/structural/decorator.md) | Adds behavior to an object, statically or dynamically | ✔ |
 | [Facade](/structural/facade.md) | Uses one type as an API to a number of others | ✘ |
 | [Flyweight](/structural/flyweight.md) | Reuses existing instances of objects with similar/identical state to minimize resource usage | ✘ |
-| [Model View Controller](/structural/model_view_controller.md) | Divides an app into three interconnected parts to separate internal representation from presentation to user | ✘ |
 | [Proxy](/structural/proxy.md) | Provides a surrogate for an object to control it's actions | ✘ |
 
 ## Behavioral Patterns
