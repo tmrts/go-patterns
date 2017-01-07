@@ -11,13 +11,13 @@ package pool
 type Pool chan *Object
 
 func New(total int) *Pool {
-	p := make(chan *Object, total)
+	p := make(Pool, total)
 
 	for i := 0; i < total; i++ {
 		p <- new(Object)
 	}
 
-	return p
+	return &p
 }
 ```
 
@@ -34,7 +34,7 @@ case obj := <-p:
 
 	p <- obj
 default:
-	// No more objects left retry later or fail
+	// No more objects left — retry later or fail
 	return
 }
 ```
@@ -45,4 +45,4 @@ default:
   expensive than the object maintenance.
 - If there are spikes in demand as opposed to a steady demand, the maintenance
   overhead might overweigh the benefits of an object pool.
-- It has positive effects on performance due to object being initialized beforehand.
+- It has positive effects on performance due to objects being initialized beforehand.
