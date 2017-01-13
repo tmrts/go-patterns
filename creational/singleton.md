@@ -9,9 +9,11 @@ package singleton
 
 type singleton map[string]string
 
-var once sync.Once
+var (
+    once sync.Once
 
-var instance singleton
+    instance singleton
+)
 
 func New() singleton {
 	once.Do(func() {
