@@ -69,7 +69,6 @@ A curated collection of idiomatic design & application patterns for Go language.
 | [Reactor](/concurrency/reactor.md) | Demultiplexes service requests delivered concurrently to a service handler and dispatches them syncronously to the associated request handlers | ✘ |
 | [Parallelism](/concurrency/parallelism.md) | Completes large number of independent tasks | ✔ |
 | [Producer Consumer](/concurrency/producer_consumer.md) | Separates tasks from task executions | ✘ |
-| [Scheduler](/concurrency/scheduler.md) | Orchestrates steps to be performed as part of a task | ✘ |
 
 ## Messaging Patterns
 

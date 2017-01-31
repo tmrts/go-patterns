@@ -40,7 +40,6 @@
     * [Reactor](/concurrency/reactor.md)
     * [Parallelism](/concurrency/parallelism.md)
     * [Producer Consumer](/concurrency/producer_consumer.md)
-    * [Scheduler](/concurrency/scheduler.md)
   * [Messaging Patterns](/README.md#messaging-patterns)
     * [Fan-In](/messaging/fan_in.md)
     * [Fan-Out](/messaging/fan_out.md)
