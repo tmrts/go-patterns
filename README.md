@@ -3,9 +3,9 @@
   <h1 align="center">
     Go Patterns
     <br>
-    <a href="http://travis-ci.org/tmrts/go-patterns"><img alt="Build Status" src="https://img.shields.io/travis/tmrts/go-patterns.svg?style=flat-square" /></a>
-    <a href="https://github.com/sindresorhus/awesome" ><img alt="Awesome" src="https://img.shields.io/badge/awesome-%E2%9C%93-ff69b4.svg?style=flat-square" /></a>
-    <a href="https://github.com/tmrts/go-patterns/blob/master/LICENSE" ><img alt="License" src="https://img.shields.io/badge/license-Apache%20License%202.0-E91E63.svg?style=flat-square" /></a>
+    <a href="http://travis-ci.org/tmrts/go-patterns"><img alt="build-status" src="https://img.shields.io/badge/build-passing-brightgreen.svg?style=flat-square" /></a>
+    <a href="https://github.com/sindresorhus/awesome" ><img alt="awesome" src="https://img.shields.io/badge/awesome-%E2%9C%93-ff69b4.svg?style=flat-square" /></a>
+    <a href="https://github.com/tmrts/go-patterns/blob/master/LICENSE" ><img alt="license" src="https://img.shields.io/badge/license-Apache%20License%202.0-E91E63.svg?style=flat-square" /></a>
   </h1>
 </p>
 
@@ -46,7 +46,7 @@ A curated collection of idiomatic design & application patterns for Go language.
 | [Strategy](/behavioral/strategy.md) | Enables an algorithm's behavior to be selected at runtime | ✔ |
 | [Template](/behavioral/template.md) | Defines a skeleton class which defers some methods to subclasses | ✘ |
 | [Visitor](/behavioral/visitor.md) | Separates an algorithm from an object on which it operates | ✘ |
- 
+
 ## Synchronization Patterns
 
 | Pattern | Description | Status |
