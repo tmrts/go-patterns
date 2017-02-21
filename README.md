@@ -17,7 +17,7 @@ A curated collection of idiomatic design & application patterns for Go language.
 |:-------:|:----------- |:------:|
 | [Abstract Factory](/creational/abstract_factory.md) | Provides an interface for creating families of releated objects | ✘ |
 | [Builder](/creational/builder.md) | Builds a complex object using simple objects | ✘ |
-| [Factory Method](/creational/factory.md) | Defers instantiation of an object to a specialized function for creating instances | ✘ |
+| [Factory Method](/creational/factory.md) | Defers instantiation of an object to a specialized function for creating instances | ✔ |
 | [Object Pool](/creational/object-pool.md) | Instantiates and maintains a group of objects instances of the same type | ✔ |
 | [Singleton](/creational/singleton.md) | Restricts instantiation of a type to one object | ✔ |
 
