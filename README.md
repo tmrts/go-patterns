@@ -88,7 +88,7 @@ A curated collection of idiomatic design & application patterns for Go language.
 | [Circuit-Breaker](/stability/circuit-breaker.md) | Stops the flow of the requests when requests are likely to fail | ✔ |
 | [Deadline](/stability/deadline.md) | Allows clients to stop waiting for a response once the probability of response becomes low (e.g. after waiting 10 seconds for a page refresh) | ✘ |
 | [Fail-Fast](/stability/fail_fast.md) | Checks the availability of required resources at the start of a request and fails if the requirements are not satisfied | ✘ |
-| [Handshaking](/stability/handshaking.md) | Asks a component if it can take any more load, if it can't the request is declined | ✘ |
+| [Handshaking](/stability/handshaking.md) | Asks a component if it can take any more load, if it can't, the request is declined | ✘ |
 | [Steady-State](/stability/steady_state.md) | For every service that accumulates a resource, some other service must recycle that resource | ✘ |
 
 ## Profiling Patterns
