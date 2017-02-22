@@ -25,7 +25,7 @@ func Duration(invocation time.Time, name string) {
 ## Usage
 
 ```go
-func IntFactorial(x big.Int) *big.Int {
+func BigIntFactorial(x big.Int) *big.Int {
     defer profile.Duration(time.Now(), "IntFactorial")
 
     y := big.NewInt(1)
