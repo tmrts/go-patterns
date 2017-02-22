@@ -59,5 +59,4 @@
     * [Functional Options](/idiom/functional-options.md)
   * [Anti-Patterns](/README.md#anti-patterns)
     * [Cascading Failures](/anti-patterns/cascading_failures.md)
-  * [Other Patterns](/README.md#other-patterns)
 * [Contributing](/CONTRIBUTING.md)
