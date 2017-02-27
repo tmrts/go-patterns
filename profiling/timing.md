@@ -26,6 +26,8 @@ func Duration(invocation time.Time, name string) {
 
 ```go
 func BigIntFactorial(x big.Int) *big.Int {
+    // Arguments to a defer statement is immediately evaluated and stored.
+    // The deferred function receives the pre-evaluated values when its invoked.
     defer profile.Duration(time.Now(), "IntFactorial")
 
     y := big.NewInt(1)
