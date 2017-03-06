@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="/gopher.jpg" height="400">
+  <img src="/gopher.png" height="400">
   <h1 align="center">
     Go Patterns
     <br>
