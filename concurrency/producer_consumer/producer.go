@@ -54,19 +54,21 @@ func (p *Producer) schedule() {
 			// one consumer consumes one job at one time
 			consumer := <-p.consumers
 
-			// if rpcCall fails, this consumer will be regarded as unavailable.
-			err := rpcCall(consumer, "Consumer.DoTask", task, &struct{}{})
-			if err != nil {
-				LogError.Printf("[%s] %s", p.address, err.Error())
-			} else { // re-register consumer
-				go func(consumer string) {
-					select {
-					case p.consumers <- consumer:
-					case <-time.After(5 * time.Second):
-						LogError.Printf("[%s] %s", p.address, ErrorTRegister)
-					}
-				}(consumer)
-			}
+			go func(consumer string) {
+				// if rpcCall fails, this consumer will be regarded as unavailable.
+				err := rpcCall(consumer, "Consumer.DoTask", task, &struct{}{})
+				if err != nil {
+					LogError.Printf("[%s] %s", p.address, err.Error())
+				} else { // re-register consumer
+					go func(consumer string) {
+						select {
+						case p.consumers <- consumer:
+						case <-time.After(5 * time.Second):
+							LogError.Printf("[%s] %s", p.address, ErrorTRegister)
+						}
+					}(consumer)
+				}
+			}(consumer)
 		case <-p.done:
 			break
 		}

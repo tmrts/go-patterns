@@ -15,7 +15,7 @@ const (
 	TimeoutDial        = 5 * time.Second
 	TimeoutShutdown    = 5 * time.Second
 
-	ProcessDuration = 2 * time.Second
+	ProcessDuration = 3 * time.Second
 )
 
 var (
