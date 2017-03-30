@@ -26,7 +26,7 @@ func main() {
 		}(i)
 	}
 
-	// start three consumers
+	// start two consumers
 	consumer1 := pc.NewConsumer(cAddr1)
 	pc.StartConsumer(consumer1, pAddr)
 	consumer2 := pc.NewConsumer(cAddr2)
