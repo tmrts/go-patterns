@@ -1,0 +1,25 @@
+language: node_js
+
+env:
+  global:
+    - GH_REPO="github.com/tmrts/go-patterns"
+    - secure: SRAVBGLCkoVpCNC5J43qC6xcQvigIYbGKgLMLiP9B4XiyKH/Q6VGjk/BVVPYuC0d072jNjgfhVdTLx/jGgy6nN+AD7i8U/FoDY6pQmy4cK1nghUUlt44mq7JTlXYHLmV3NsaxmRMV5QuO9L/9AMcCh6U0MxrgMYafSPaSdHQq8hTkFFOYU05zKKUihLF3sVfEZ0KpxhHjtKA+SqcJK2NjqaGdySaziSe6Nj1kZgF9/SJkOiw/bM7O4/uqFXqEGZo5QaOQpwaj2B0wfGqwfJtyE2wM+80Aw5Ya/yqdQWplUozHKv36/u1N45cHkeDbr+RXnBpmUfGh8YTbInWh9BjyU5MLgKeJTtUMAVvwr/soa+OsHuGmdeVM5mRdXISlFSnXCkoowJ6iQsPdqGvYROz0KqqXmkVDuUKdxPU4ShyKo/LqtRwXvxQS9etF4ais8MoNmW0zI3eKdc4b6cpCXWt5fUtK8uzSUGDHHVFGpWnk8VsF0cPfLYxd9bo87amHqYGQoPJ4ughTtOAbA6uSNlcDM9AkQ591+vHpQE15td2VXUOf7aKqqPFWy+GagsI/yPry6v3d/Mk5D4ZLUXZGOv5uvengyos0dxWg9EV1yjm/mpiCtuqAtvV9HMNxcMGGCii7dMy37WmGBj3HBqeGPYHvt8pKMo2/gkcXxadzBXvJVs=
+
+install:
+  - npm install gitbook-cli
+  - gitbook install
+
+script:
+  - gitbook build . out
+
+after_success:
+  - echo -e "Deploying updates to GitHub..."
+  - MSG=$(git log -1 --oneline)
+  - cd out
+  - git config --global user.email "contact@tmrts.com"
+  - git config --global user.name "Tamer Tas"
+  - git init
+  - git checkout -b gh-pages
+  - git add -A :/
+  - git commit -m "Travis CI | ${MSG}"
+  - git push "https://${GH_TOKEN}@${GH_REPO}" gh-pages -f

@@ -1,0 +1,1103 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Semaphore · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../" />
+    
+    
+    <link rel="prev" href="read_write_lock.md" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Go Patterns
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="../">
+            
+                <a href="../#creational-patterns">
+            
+                    
+                    Creational Patterns
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1.1" data-path="../creational/abstract_factory.md">
+            
+                <span>
+            
+                    
+                    Abstract Factory
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.1.2" data-path="../creational/builder.html">
+            
+                <a href="../creational/builder.html">
+            
+                    
+                    Builder
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.1.3" data-path="../creational/factory.html">
+            
+                <a href="../creational/factory.html">
+            
+                    
+                    Factory Method
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.1.4" data-path="../creational/object-pool.html">
+            
+                <a href="../creational/object-pool.html">
+            
+                    
+                    Object Pool
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.1.5" data-path="../creational/singleton.html">
+            
+                <a href="../creational/singleton.html">
+            
+                    
+                    Singleton
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2" data-path="../">
+            
+                <a href="../#structural-patterns">
+            
+                    
+                    Structural Patterns
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.2.1" data-path="../structural/bridge.md">
+            
+                <span>
+            
+                    
+                    Bridge
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2.2" data-path="../structural/composite.md">
+            
+                <span>
+            
+                    
+                    Composite
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2.3" data-path="../structural/decorator.html">
+            
+                <a href="../structural/decorator.html">
+            
+                    
+                    Decorator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2.4" data-path="../structural/facade.md">
+            
+                <span>
+            
+                    
+                    Facade
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2.5" data-path="../structural/flyweight.md">
+            
+                <span>
+            
+                    
+                    Flyweight
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2.6" data-path="../structural/proxy.md">
+            
+                <span>
+            
+                    
+                    Proxy
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3" data-path="../">
+            
+                <a href="../#behavioral-patterns">
+            
+                    
+                    Behavioral Patterns
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.3.1" data-path="../behavioral/chain_of_responsibility.md">
+            
+                <span>
+            
+                    
+                    Chain of Responsibility
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3.2" data-path="../behavioral/command.md">
+            
+                <span>
+            
+                    
+                    Command
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3.3" data-path="../behavioral/mediator.md">
+            
+                <span>
+            
+                    
+                    Mediator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3.4" data-path="../behavioral/memento.md">
+            
+                <span>
+            
+                    
+                    Memento
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3.5" data-path="../behavioral/observer.html">
+            
+                <a href="../behavioral/observer.html">
+            
+                    
+                    Observer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3.6" data-path="../behavioral/registry.md">
+            
+                <span>
+            
+                    
+                    Registry
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3.7" data-path="../behavioral/state.md">
+            
+                <span>
+            
+                    
+                    State
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3.8" data-path="../behavioral/strategy.html">
+            
+                <a href="../behavioral/strategy.html">
+            
+                    
+                    Strategy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3.9" data-path="../behavioral/template.md">
+            
+                <span>
+            
+                    
+                    Template
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3.10" data-path="../behavioral/visitor.md">
+            
+                <span>
+            
+                    
+                    Visitor
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.4" data-path="../">
+            
+                <a href="../#synchronization-patterns">
+            
+                    
+                    Synchronization Patterns
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.4.1" data-path="condition_variable.md">
+            
+                <span>
+            
+                    
+                    Condition Variable
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.4.2" data-path="mutex.md">
+            
+                <span>
+            
+                    
+                    Lock/Mutex
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.4.3" data-path="monitor.md">
+            
+                <span>
+            
+                    
+                    Monitor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.4.4" data-path="read_write_lock.md">
+            
+                <span>
+            
+                    
+                    Read-Write Lock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.1.4.5" data-path="semaphore.html">
+            
+                <a href="semaphore.html">
+            
+                    
+                    Semaphore
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5" data-path="../">
+            
+                <a href="../#concurrency-patterns">
+            
+                    
+                    Concurrency Patterns
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.5.1" data-path="../concurrency/barrier.md">
+            
+                <span>
+            
+                    
+                    N-Barrier
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5.2" data-path="../concurrency/bounded_parallelism.html">
+            
+                <a href="../concurrency/bounded_parallelism.html">
+            
+                    
+                    Bounded Parallelism
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5.3" data-path="../concurrency/broadcast.md">
+            
+                <span>
+            
+                    
+                    Broadcast
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5.4" data-path="../concurrency/coroutine.md">
+            
+                <span>
+            
+                    
+                    Coroutines
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5.5" data-path="../concurrency/generator.html">
+            
+                <a href="../concurrency/generator.html">
+            
+                    
+                    Generators
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5.6" data-path="../concurrency/reactor.md">
+            
+                <span>
+            
+                    
+                    Reactor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5.7" data-path="../concurrency/parallelism.html">
+            
+                <a href="../concurrency/parallelism.html">
+            
+                    
+                    Parallelism
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5.8" data-path="../concurrency/producer_consumer.md">
+            
+                <span>
+            
+                    
+                    Producer Consumer
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.6" data-path="../">
+            
+                <a href="../#messaging-patterns">
+            
+                    
+                    Messaging Patterns
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.6.1" data-path="../messaging/fan_in.html">
+            
+                <a href="../messaging/fan_in.html">
+            
+                    
+                    Fan-In
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.6.2" data-path="../messaging/fan_out.html">
+            
+                <a href="../messaging/fan_out.html">
+            
+                    
+                    Fan-Out
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.6.3" data-path="../messaging/futures_promises.md">
+            
+                <span>
+            
+                    
+                    Futures & Promises
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.6.4" data-path="../messaging/publish_subscribe.html">
+            
+                <a href="../messaging/publish_subscribe.html">
+            
+                    
+                    Publish/Subscribe
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.6.5" data-path="../messaging/push_pull.md">
+            
+                <span>
+            
+                    
+                    Push & Pull
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.7" data-path="../">
+            
+                <a href="../#stability-patterns">
+            
+                    
+                    Stability Patterns
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.7.1" data-path="../stability/bulkhead.md">
+            
+                <span>
+            
+                    
+                    Bulkheads
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.7.2" data-path="../stability/circuit-breaker.html">
+            
+                <a href="../stability/circuit-breaker.html">
+            
+                    
+                    Circuit-Breaker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.7.3" data-path="../stability/deadline.md">
+            
+                <span>
+            
+                    
+                    Deadline
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.7.4" data-path="../stability/fail_fast.md">
+            
+                <span>
+            
+                    
+                    Fail-Fast
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.7.5" data-path="../stability/handshaking.md">
+            
+                <span>
+            
+                    
+                    Handshaking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.7.6" data-path="../stability/steady_state.md">
+            
+                <span>
+            
+                    
+                    Steady-State
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.8" data-path="../">
+            
+                <a href="../#profiling-patterns">
+            
+                    
+                    Profiling Patterns
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.8.1" data-path="../profiling/timing.html">
+            
+                <a href="../profiling/timing.html">
+            
+                    
+                    Timing Functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.9" data-path="../">
+            
+                <a href="../#idioms">
+            
+                    
+                    Idioms
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.9.1" data-path="../idiom/functional-options.html">
+            
+                <a href="../idiom/functional-options.html">
+            
+                    
+                    Functional Options
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.10" data-path="../">
+            
+                <a href="../#anti-patterns">
+            
+                    
+                    Anti-Patterns
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.10.1" data-path="../anti-patterns/cascading_failures.md">
+            
+                <span>
+            
+                    
+                    Cascading Failures
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../CONTRIBUTING.html">
+            
+                <a href="../CONTRIBUTING.html">
+            
+                    
+                    Contributing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Semaphore</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="semaphore-pattern">Semaphore Pattern</h1>
+<p>A semaphore is a synchronization pattern/primitive that imposes mutual exclusion on a limited number of resources. </p>
+<h2 id="implementation">Implementation</h2>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> semaphore
+
+<span class="hljs-keyword">var</span> (
+    ErrNoTickets      = errors.New(<span class="hljs-string">&quot;semaphore: could not aquire semaphore&quot;</span>)
+    ErrIllegalRelease = errors.New(<span class="hljs-string">&quot;semaphore: can&apos;t release the semaphore without acquiring it first&quot;</span>)
+)
+
+<span class="hljs-comment">// Interface contains the behavior of a semaphore that can be acquired and/or released.</span>
+<span class="hljs-keyword">type</span> Interface <span class="hljs-keyword">interface</span> {
+    Acquire() error
+    Release() error
+}
+
+<span class="hljs-keyword">type</span> implementation <span class="hljs-keyword">struct</span> {
+    sem     <span class="hljs-keyword">chan</span> <span class="hljs-keyword">struct</span>{}
+    timeout time.Duration
+}
+
+<span class="hljs-keyword">func</span> (s *implementation) Acquire() error {
+    <span class="hljs-keyword">select</span> {
+    <span class="hljs-keyword">case</span> s.sem &lt;- <span class="hljs-keyword">struct</span>{}{}:
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">nil</span>
+    <span class="hljs-keyword">case</span> &lt;-time.After(s.timeout):
+        <span class="hljs-keyword">return</span> ErrNoTickets
+    }
+}
+
+<span class="hljs-keyword">func</span> (s *implementation) Release() error {
+    <span class="hljs-keyword">select</span> {
+    <span class="hljs-keyword">case</span> _ = &lt;-s.sem:
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">nil</span>
+    <span class="hljs-keyword">case</span> &lt;-time.After(s.timeout):
+        <span class="hljs-keyword">return</span> ErrIllegalRelease
+    }
+
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">nil</span>
+}
+
+<span class="hljs-keyword">func</span> New(tickets <span class="hljs-keyword">int</span>, timeout time.Duration) Interface {
+    <span class="hljs-keyword">return</span> &amp;implementation{
+        sem:     <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-keyword">struct</span>{}, tickets),
+        timeout: timeout,
+    }
+}
+</code></pre>
+<h2 id="usage">Usage</h2>
+<h3 id="semaphore-with-timeouts">Semaphore with Timeouts</h3>
+<pre><code class="lang-go">tickets, timeout := <span class="hljs-number">1</span>, <span class="hljs-number">3</span>*time.Second
+s := semaphore.New(tickets, timeout)
+
+<span class="hljs-keyword">if</span> err := s.Acquire(); err != <span class="hljs-literal">nil</span> {
+    <span class="hljs-built_in">panic</span>(err)
+}
+
+<span class="hljs-comment">// Do important work</span>
+
+<span class="hljs-keyword">if</span> err := s.Release(); err != <span class="hljs-literal">nil</span> {
+    <span class="hljs-built_in">panic</span>(err)
+}
+</code></pre>
+<h3 id="semaphore-without-timeouts-non-blocking">Semaphore without Timeouts (Non-Blocking)</h3>
+<pre><code class="lang-go">tickets, timeout := <span class="hljs-number">0</span>, <span class="hljs-number">0</span>
+s := semaphore.New(tickets, timeout)
+
+<span class="hljs-keyword">if</span> err := s.Acquire(); err != <span class="hljs-literal">nil</span> {
+    <span class="hljs-keyword">if</span> err != semaphore.ErrNoTickets {
+        <span class="hljs-built_in">panic</span>(err)
+    }
+
+    <span class="hljs-comment">// No tickets left, can&apos;t work :(</span>
+    os.Exit(<span class="hljs-number">1</span>)
+}
+</code></pre>
+
+                                
+                                </section>
+                            
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="read_write_lock.md" class="navigation navigation-prev " aria-label="Previous page: Read-Write Lock">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../#concurrency-patterns" class="navigation navigation-next " aria-label="Next page: Concurrency Patterns">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Semaphore","level":"1.1.4.5","depth":3,"next":{"title":"Concurrency Patterns","level":"1.1.5","depth":2,"anchor":"#concurrency-patterns","path":"README.md","ref":"README.md#concurrency-patterns","articles":[{"title":"N-Barrier","level":"1.1.5.1","depth":3,"path":"concurrency/barrier.md","ref":"concurrency/barrier.md","articles":[]},{"title":"Bounded Parallelism","level":"1.1.5.2","depth":3,"path":"concurrency/bounded_parallelism.md","ref":"concurrency/bounded_parallelism.md","articles":[]},{"title":"Broadcast","level":"1.1.5.3","depth":3,"path":"concurrency/broadcast.md","ref":"concurrency/broadcast.md","articles":[]},{"title":"Coroutines","level":"1.1.5.4","depth":3,"path":"concurrency/coroutine.md","ref":"concurrency/coroutine.md","articles":[]},{"title":"Generators","level":"1.1.5.5","depth":3,"path":"concurrency/generator.md","ref":"concurrency/generator.md","articles":[]},{"title":"Reactor","level":"1.1.5.6","depth":3,"path":"concurrency/reactor.md","ref":"concurrency/reactor.md","articles":[]},{"title":"Parallelism","level":"1.1.5.7","depth":3,"path":"concurrency/parallelism.md","ref":"concurrency/parallelism.md","articles":[]},{"title":"Producer Consumer","level":"1.1.5.8","depth":3,"path":"concurrency/producer_consumer.md","ref":"concurrency/producer_consumer.md","articles":[]}]},"previous":{"title":"Read-Write Lock","level":"1.1.4.4","depth":3,"path":"synchronization/read_write_lock.md","ref":"synchronization/read_write_lock.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["-search","-lunr","github","edit-link"],"pluginsConfig":{"github":{"url":"https://github.com/tmrts/go-patterns"},"edit-link":{"label":"","base":"https://github.com/tmrts/go-patterns/edit/master/"},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"synchronization/semaphore.md","mtime":"2017-05-01T12:22:21.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-01T12:23:41.783Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

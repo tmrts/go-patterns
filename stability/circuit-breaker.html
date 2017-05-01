@@ -1,0 +1,1116 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Circuit-Breaker · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="deadline.md" />
+    
+    
+    <link rel="prev" href="bulkhead.md" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Go Patterns
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="../">
+            
+                <a href="../#creational-patterns">
+            
+                    
+                    Creational Patterns
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1.1" data-path="../creational/abstract_factory.md">
+            
+                <span>
+            
+                    
+                    Abstract Factory
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.1.2" data-path="../creational/builder.html">
+            
+                <a href="../creational/builder.html">
+            
+                    
+                    Builder
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.1.3" data-path="../creational/factory.html">
+            
+                <a href="../creational/factory.html">
+            
+                    
+                    Factory Method
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.1.4" data-path="../creational/object-pool.html">
+            
+                <a href="../creational/object-pool.html">
+            
+                    
+                    Object Pool
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.1.5" data-path="../creational/singleton.html">
+            
+                <a href="../creational/singleton.html">
+            
+                    
+                    Singleton
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2" data-path="../">
+            
+                <a href="../#structural-patterns">
+            
+                    
+                    Structural Patterns
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.2.1" data-path="../structural/bridge.md">
+            
+                <span>
+            
+                    
+                    Bridge
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2.2" data-path="../structural/composite.md">
+            
+                <span>
+            
+                    
+                    Composite
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2.3" data-path="../structural/decorator.html">
+            
+                <a href="../structural/decorator.html">
+            
+                    
+                    Decorator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2.4" data-path="../structural/facade.md">
+            
+                <span>
+            
+                    
+                    Facade
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2.5" data-path="../structural/flyweight.md">
+            
+                <span>
+            
+                    
+                    Flyweight
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2.6" data-path="../structural/proxy.md">
+            
+                <span>
+            
+                    
+                    Proxy
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3" data-path="../">
+            
+                <a href="../#behavioral-patterns">
+            
+                    
+                    Behavioral Patterns
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.3.1" data-path="../behavioral/chain_of_responsibility.md">
+            
+                <span>
+            
+                    
+                    Chain of Responsibility
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3.2" data-path="../behavioral/command.md">
+            
+                <span>
+            
+                    
+                    Command
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3.3" data-path="../behavioral/mediator.md">
+            
+                <span>
+            
+                    
+                    Mediator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3.4" data-path="../behavioral/memento.md">
+            
+                <span>
+            
+                    
+                    Memento
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3.5" data-path="../behavioral/observer.html">
+            
+                <a href="../behavioral/observer.html">
+            
+                    
+                    Observer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3.6" data-path="../behavioral/registry.md">
+            
+                <span>
+            
+                    
+                    Registry
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3.7" data-path="../behavioral/state.md">
+            
+                <span>
+            
+                    
+                    State
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3.8" data-path="../behavioral/strategy.html">
+            
+                <a href="../behavioral/strategy.html">
+            
+                    
+                    Strategy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3.9" data-path="../behavioral/template.md">
+            
+                <span>
+            
+                    
+                    Template
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3.10" data-path="../behavioral/visitor.md">
+            
+                <span>
+            
+                    
+                    Visitor
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.4" data-path="../">
+            
+                <a href="../#synchronization-patterns">
+            
+                    
+                    Synchronization Patterns
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.4.1" data-path="../synchronization/condition_variable.md">
+            
+                <span>
+            
+                    
+                    Condition Variable
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.4.2" data-path="../synchronization/mutex.md">
+            
+                <span>
+            
+                    
+                    Lock/Mutex
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.4.3" data-path="../synchronization/monitor.md">
+            
+                <span>
+            
+                    
+                    Monitor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.4.4" data-path="../synchronization/read_write_lock.md">
+            
+                <span>
+            
+                    
+                    Read-Write Lock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.4.5" data-path="../synchronization/semaphore.html">
+            
+                <a href="../synchronization/semaphore.html">
+            
+                    
+                    Semaphore
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5" data-path="../">
+            
+                <a href="../#concurrency-patterns">
+            
+                    
+                    Concurrency Patterns
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.5.1" data-path="../concurrency/barrier.md">
+            
+                <span>
+            
+                    
+                    N-Barrier
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5.2" data-path="../concurrency/bounded_parallelism.html">
+            
+                <a href="../concurrency/bounded_parallelism.html">
+            
+                    
+                    Bounded Parallelism
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5.3" data-path="../concurrency/broadcast.md">
+            
+                <span>
+            
+                    
+                    Broadcast
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5.4" data-path="../concurrency/coroutine.md">
+            
+                <span>
+            
+                    
+                    Coroutines
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5.5" data-path="../concurrency/generator.html">
+            
+                <a href="../concurrency/generator.html">
+            
+                    
+                    Generators
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5.6" data-path="../concurrency/reactor.md">
+            
+                <span>
+            
+                    
+                    Reactor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5.7" data-path="../concurrency/parallelism.html">
+            
+                <a href="../concurrency/parallelism.html">
+            
+                    
+                    Parallelism
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5.8" data-path="../concurrency/producer_consumer.md">
+            
+                <span>
+            
+                    
+                    Producer Consumer
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.6" data-path="../">
+            
+                <a href="../#messaging-patterns">
+            
+                    
+                    Messaging Patterns
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.6.1" data-path="../messaging/fan_in.html">
+            
+                <a href="../messaging/fan_in.html">
+            
+                    
+                    Fan-In
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.6.2" data-path="../messaging/fan_out.html">
+            
+                <a href="../messaging/fan_out.html">
+            
+                    
+                    Fan-Out
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.6.3" data-path="../messaging/futures_promises.md">
+            
+                <span>
+            
+                    
+                    Futures & Promises
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.6.4" data-path="../messaging/publish_subscribe.html">
+            
+                <a href="../messaging/publish_subscribe.html">
+            
+                    
+                    Publish/Subscribe
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.6.5" data-path="../messaging/push_pull.md">
+            
+                <span>
+            
+                    
+                    Push & Pull
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.7" data-path="../">
+            
+                <a href="../#stability-patterns">
+            
+                    
+                    Stability Patterns
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.7.1" data-path="bulkhead.md">
+            
+                <span>
+            
+                    
+                    Bulkheads
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.1.7.2" data-path="circuit-breaker.html">
+            
+                <a href="circuit-breaker.html">
+            
+                    
+                    Circuit-Breaker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.7.3" data-path="deadline.md">
+            
+                <span>
+            
+                    
+                    Deadline
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.7.4" data-path="fail_fast.md">
+            
+                <span>
+            
+                    
+                    Fail-Fast
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.7.5" data-path="handshaking.md">
+            
+                <span>
+            
+                    
+                    Handshaking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.7.6" data-path="steady_state.md">
+            
+                <span>
+            
+                    
+                    Steady-State
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.8" data-path="../">
+            
+                <a href="../#profiling-patterns">
+            
+                    
+                    Profiling Patterns
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.8.1" data-path="../profiling/timing.html">
+            
+                <a href="../profiling/timing.html">
+            
+                    
+                    Timing Functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.9" data-path="../">
+            
+                <a href="../#idioms">
+            
+                    
+                    Idioms
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.9.1" data-path="../idiom/functional-options.html">
+            
+                <a href="../idiom/functional-options.html">
+            
+                    
+                    Functional Options
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.10" data-path="../">
+            
+                <a href="../#anti-patterns">
+            
+                    
+                    Anti-Patterns
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.10.1" data-path="../anti-patterns/cascading_failures.md">
+            
+                <span>
+            
+                    
+                    Cascading Failures
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../CONTRIBUTING.html">
+            
+                <a href="../CONTRIBUTING.html">
+            
+                    
+                    Contributing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Circuit-Breaker</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="circuit-breaker-pattern">Circuit Breaker Pattern</h1>
+<p>Similar to electrical fuses that prevent fires when a circuit that is connected
+to the electrical grid starts drawing a high amount of power which causes the
+wires to heat up and combust, the circuit breaker design pattern is a fail-first
+mechanism that shuts down the circuit, request/response relationship or a
+service in the case of software development, to prevent bigger failures.</p>
+<p><strong>Note:</strong> The words &quot;circuit&quot; and &quot;service&quot; are used synonymously throught this
+document.</p>
+<h2 id="implementation">Implementation</h2>
+<p>Below is the implementation of a very simple circuit breaker to illustrate the purpose
+of the circuit breaker design pattern.</p>
+<h3 id="operation-counter">Operation Counter</h3>
+<p><code>circuit.Counter</code> is a simple counter that records success and failure states of
+a circuit along with a timestamp and calculates the consecutive number of
+failures.</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> circuit
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;time&quot;</span>
+)
+
+<span class="hljs-keyword">type</span> State <span class="hljs-keyword">int</span>
+
+<span class="hljs-keyword">const</span> (
+    UnknownState State = <span class="hljs-literal">iota</span>
+    FailureState
+    SuccessState
+)
+
+<span class="hljs-keyword">type</span> Counter <span class="hljs-keyword">interface</span> {
+    Count(State)
+    ConsecutiveFailures() <span class="hljs-keyword">uint32</span>
+    LastActivity() time.Time
+    Reset()
+}
+</code></pre>
+<h3 id="circuit-breaker">Circuit Breaker</h3>
+<p>Circuit is wrapped using the <code>circuit.Breaker</code> closure that keeps an internal operation counter.
+It returns a fast error if the circuit has failed consecutively more than the specified threshold.
+After a while it retries the request and records it.</p>
+<p><strong>Note:</strong> Context type is used here to carry deadlines, cancelation signals, and
+other request-scoped values across API boundaries and between processes.</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> circuit
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;context&quot;</span>
+    <span class="hljs-string">&quot;time&quot;</span>
+)
+
+<span class="hljs-keyword">type</span> Circuit <span class="hljs-keyword">func</span>(context.Context) error
+
+<span class="hljs-keyword">func</span> Breaker(c Circuit, failureThreshold <span class="hljs-keyword">uint32</span>) Circuit {
+    cnt := NewCounter()
+
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">func</span>(ctx context) error {
+        <span class="hljs-keyword">if</span> cnt.ConsecutiveFailures() &gt;= failureThreshold {
+            canRetry := <span class="hljs-keyword">func</span>(cnt Counter) {
+                backoffLevel := Cnt.ConsecutiveFailures() - failureThreshold
+
+                <span class="hljs-comment">// Calculates when should the circuit breaker resume propagating requests</span>
+                <span class="hljs-comment">// to the service</span>
+                shouldRetryAt := cnt.LastActivity().Add(time.Seconds * <span class="hljs-number">2</span> &lt;&lt; backoffLevel)
+
+                <span class="hljs-keyword">return</span> time.Now().After(shouldRetryAt)
+            }
+
+            <span class="hljs-keyword">if</span> !canRetry(cnt) {
+                <span class="hljs-comment">// Fails fast instead of propagating requests to the circuit since</span>
+                <span class="hljs-comment">// not enough time has passed since the last failure to retry</span>
+                <span class="hljs-keyword">return</span> ErrServiceUnavailable
+            }
+        }
+
+        <span class="hljs-comment">// Unless the failure threshold is exceeded the wrapped service mimics the</span>
+        <span class="hljs-comment">// old behavior and the difference in behavior is seen after consecutive failures</span>
+        <span class="hljs-keyword">if</span> err := c(ctx); err != <span class="hljs-literal">nil</span> {
+            cnt.Count(FailureState)
+            <span class="hljs-keyword">return</span> err
+        }
+
+        cnt.Count(SuccessState)
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">nil</span>
+    }
+}
+</code></pre>
+<h2 id="related-works">Related Works</h2>
+<ul>
+<li><a href="https://github.com/sony/gobreaker" target="_blank">sony/gobreaker</a> is a well-tested and intuitive circuit breaker implementation for real-world use cases.</li>
+</ul>
+
+                                
+                                </section>
+                            
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="bulkhead.md" class="navigation navigation-prev " aria-label="Previous page: Bulkheads">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="deadline.md" class="navigation navigation-next " aria-label="Next page: Deadline">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Circuit-Breaker","level":"1.1.7.2","depth":3,"next":{"title":"Deadline","level":"1.1.7.3","depth":3,"path":"stability/deadline.md","ref":"stability/deadline.md","articles":[]},"previous":{"title":"Bulkheads","level":"1.1.7.1","depth":3,"path":"stability/bulkhead.md","ref":"stability/bulkhead.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["-search","-lunr","github","edit-link"],"pluginsConfig":{"github":{"url":"https://github.com/tmrts/go-patterns"},"edit-link":{"label":"","base":"https://github.com/tmrts/go-patterns/edit/master/"},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"stability/circuit-breaker.md","mtime":"2017-05-01T12:22:21.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-01T12:23:41.783Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
