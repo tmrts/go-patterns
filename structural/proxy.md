@@ -18,7 +18,7 @@ Short idea of implementation:
 
     func (obj *Object) ObjDo(action string) {
         // Action handler
-        fmt.Printf("I do, %s", action)
+        fmt.Printf("I can, %s", action)
     }
 
     type ProxyObject struct {
@@ -41,4 +41,4 @@ Short idea of implementation:
 ```
 
 ## Usage
-For usage, see [observer/main.go](proxy/main.go) or [view in the Playground](https://play.golang.org/p/cr8jEmDmw0).
+For usage, see [proxy/main.go](proxy/main.go) or [view in the Playground]().
