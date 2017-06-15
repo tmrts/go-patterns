@@ -30,7 +30,7 @@ A curated collection of idiomatic design & application patterns for Go language.
 | [Decorator](/structural/decorator.md) | Adds behavior to an object, statically or dynamically | ✔ |
 | [Facade](/structural/facade.md) | Uses one type as an API to a number of others | ✘ |
 | [Flyweight](/structural/flyweight.md) | Reuses existing instances of objects with similar/identical state to minimize resource usage | ✘ |
-| [Proxy](/structural/proxy.md) | Provides a surrogate for an object to control it's actions | ✘ |
+| [Proxy](/structural/proxy.md) | Provides a surrogate for an object to control it's actions | ✔ |
 
 ## Behavioral Patterns
 
