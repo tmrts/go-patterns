@@ -2,32 +2,60 @@ package main
 
 import "fmt"
 
-// Terminal represents a public methods
-// whose allows to interact with "client"
-type ITerminal interface {
-	Execute(someCommand string) string
+// For example:
+// we must a execute some command
+// so before that we must to create new terminal session
+// and provide our user name and command
+func main() {
+	var excResp string // response of executed command
+	var excErr error   // error of executing command
+
+	// Create new instance of Proxy terminal
+	t := new(Terminal)
+
+	// Try execute command with invalid user
+	if excResp, excErr = t.ExecuteCommand("badGopher", "capture_land"); excErr != nil {
+		fmt.Printf("%s\n", excErr.Error()) // Prints: You are not allowed to execute commands
+	}
+
+	// Try execute incorrect command
+	if excResp, excErr = t.ExecuteCommand("gopher", "doJob"); excErr != nil {
+		fmt.Printf("%s\n", excErr.Error()) // Prints: I know only how to say hello (command: say_hi)
+	}
+
+	// Show correct result of execution
+	fmt.Println(excResp) // Prints: Hi gopher
 }
 
-// GopherTerminal incapsulated terminal
+/*
+	From that it's can be different terminals realizations with different methods, propertys, yda yda...
+*/
+
+// GopherTerminal for example:
+// Its a "huge" structure with different public methods
 type GopherTerminal struct {
-	// User is a authorized user
+	// user is a current authorized user
 	user string
 }
 
-// Implements Terminal interface for GopherTerminal
-// Execute just run known command
-func (gt *GopherTerminal) Execute(cmd string) (resp string) {
-	resp = "Unknown command"
+// Execute just runs known commands for current authorized user
+func (gt *GopherTerminal) Execute(cmd string) (resp string, err error) {
 
-	if cmd == "say_hi" {
-		resp = fmt.Sprintf("Hi %s", gt.user)
+	if cmd != "say_hi" {
+		err = fmt.Errorf("Unknown command")
 	}
+
+	resp = fmt.Sprintf("Hi %s", gt.user)
 
 	return
 }
 
-// Implements Proxy terminal to validate if user can use it
-// As example before send command user, must be authorized to do it
+/*
+	And now we will create owr proxy to deliver user and commands to specific objects
+*/
+
+// Terminal is a implementation of Proxy, it's  validates and sends data to GopherTerminal
+// As example before send commands, user must be authorized
 type Terminal struct {
 	gopherTerminal *GopherTerminal
 }
@@ -42,31 +70,15 @@ func (t *Terminal) ExecuteCommand(user, command string) (resp string, err error)
 		return
 	}
 
-	// if user allowed to execute send commands then,
-	// create new instance of terminal, set current user and send user command to execution
+	// if user allowed to execute send commands then, for example we can decide which terminal can be used, remote or local etc..
+	// but for example we just creating new instance of terminal,
+	// set current user and send user command to execution in terminal
 	t.gopherTerminal = new(GopherTerminal)
 	t.gopherTerminal.user = user
-	if resp = t.gopherTerminal.Execute(command); resp == "Unknown command" {
-		err = fmt.Errorf("I know only how to say hello (type: say_hi)")
+	if resp, err = t.gopherTerminal.Execute(command); err != nil {
+		err = fmt.Errorf("I know only how to say hello (command: say_hi)")
 		return
 	}
 
 	return
-}
-
-// For example:
-// we must a execute some command
-// so before that we must to create new terminal session
-// and provide our user name and command
-func main() {
-	// Create new instance of terminal
-	newTerm := new(Terminal)
-	// Try execute command
-	resp, err := newTerm.ExecuteCommand("gopher", "doJob")
-	if err != nil {
-		fmt.Println(err.Error()) // print Unknown command
-	}
-
-	// Handle result of execution
-	fmt.Println(resp)
 }
