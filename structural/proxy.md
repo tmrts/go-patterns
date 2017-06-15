@@ -41,4 +41,4 @@ Short idea of implementation:
 ```
 
 ## Usage
-For more complex usage, see [proxy/main.go](proxy/main.go) or [view in the Playground](https://play.golang.org/p/VswGMpz-gp).
+For more complex usage, see [proxy/main.go](proxy/main.go) or [view in the Playground](https://play.golang.org/p/q2zFgDK1X9).
