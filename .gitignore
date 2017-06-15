@@ -19,6 +19,16 @@ _cgo_export.*
 
 _testmain.go
 
-*.exe
-*.test
 *.prof
+# Test binary, build with `go test -c`
+*.test
+# Binaries for programs and plugins
+*.exe
+*.dll
+*.dylib
+
+# JetBrains project files
+.idea/
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
