@@ -18,9 +18,9 @@ Short idea of implementation:
         action string
     }
 
-    // ObjDo implements IObject interface and handels all logic
+    // ObjDo implements IObject interface and handel's all logic
     func (obj *Object) ObjDo(action string) {
-        // Action behaiver
+        // Action behavior
         fmt.Printf("I can, %s", action)
     }
 
@@ -41,4 +41,5 @@ Short idea of implementation:
 ```
 
 ## Usage
-For more complex usage, see [proxy/main.go](proxy/main.go) or [view in the Playground](https://play.golang.org/p/q2zFgDK1X9).
+More complex usage of proxy as example: User creates "Terminal" authorizes and PROXY send execution command to real Terminal object
+See [proxy/main.go](proxy/main.go) or [view in the Playground](https://play.golang.org/p/mnjKCMaOVE).
