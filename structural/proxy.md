@@ -18,7 +18,7 @@ Short idea of implementation:
         action string
     }
 
-    // ObjDo implements IObject interface and handel's all logic
+    // ObjDo implements IObject interface and handles all logic
     func (obj *Object) ObjDo(action string) {
         // Action behavior
         fmt.Printf("I can, %s", action)
