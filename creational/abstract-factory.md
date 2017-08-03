@@ -4,4 +4,4 @@ The [abstract factory design pattern](https://en.wikipedia.org/wiki/Abstract_fac
 
 # Implementation and Example
 
-An example with implementation and usage can be found in [abstract_factory.go](abstract_factory.go).
+An example with implementation and usage can be found in [abstract-factory.go](abstract-factory.go).
