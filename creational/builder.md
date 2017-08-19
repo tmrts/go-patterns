@@ -13,7 +13,9 @@ however passing a struct to the builder method fills the code with boilerplate
 ```go
 package car
 
-type Speed float64
+import "strconv"
+
+type Speed float32
 
 const (
     MPH Speed = 1
@@ -43,8 +45,55 @@ type Builder interface {
 }
 
 type Interface interface {
-    Drive() error
-    Stop() error
+    Drive() string
+    Stop() string
+}
+
+type carBuilder struct {
+	speed  Speed
+	color  Color
+	wheels Wheels
+}
+
+type carObject struct {
+	topSpeed Speed
+	color    Color
+	wheels   Wheels
+}
+
+func NewBulder() Builder {
+	return &carBuilder{}
+}
+
+func (cb *carBuilder) TopSpeed(speed Speed) Builder {
+	cb.speed = speed
+	return cb
+}
+
+func (cb *carBuilder) Paint(color Color) Builder {
+	cb.color = color
+	return cb
+}
+
+func (cb *carBuilder) Wheels(wheels Wheels) Builder {
+	cb.wheels = wheels
+	return cb
+}
+
+func (cb *carBuilder) Build() Interface {
+	return &carObject{
+		topSpeed: cb.speed,
+		color:    cb.color,
+		wheels:   cb.wheels,
+	}
+}
+
+func (c *carObject) Drive() string {
+	return "Driving at speed: " + strconv.FormatFloat(float64(c.topSpeed), 'f', 2, 32)
+}
+
+func (c *carObject) Stop() string {
+	return "Stopping a " + string(c.color) + " car"
 }
 ```
 
@@ -53,9 +102,12 @@ type Interface interface {
 ```go
 assembly := car.NewBuilder().Paint(car.RedColor)
 
-familyCar := assembly.Wheels(car.SportsWheels).TopSpeed(50 * car.MPH).Build()
-familyCar.Drive()
+familyCar := assembly.Wheels(car.SteelWheels).TopSpeed(50 * car.MPH).Build()
+fmt.Println(familyCar.Drive())
 
-sportsCar := assembly.Wheels(car.SteelWheels).TopSpeed(150 * car.MPH).Build()
-sportsCar.Drive()
+sportsCar := assembly.Paint(car.BlueColor).Wheels(car.SportsWheels).TopSpeed(150 * car.MPH).Build()
+fmt.Println(sportsCar.Drive())
+
+fmt.Println(familyCar.Stop())
+fmt.Println(sportsCar.Stop()
 ```
