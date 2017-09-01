@@ -70,11 +70,9 @@ func (productFacade ProductFacade) GetDiscountedCost(userName string, productNam
     product := Product{name: "Car", cost:10.50, discount: 0.1 }
 
     userStorage := UserStorage{storageMap: make(map[string]User)}
-    //userStorage.storageMap = make(map[string]User)
     userStorage.storageMap[user.name] = user
 
     productStorage := ProductStorage{storageMap: make(map[string]Product)}
-    //productStorage.storageMap = make(map[string]Product)
     productStorage.storageMap[product.name] = product
 
     facade := ProductFacade{productStorage: productStorage, userStorage: userStorage}
