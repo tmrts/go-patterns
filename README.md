@@ -102,6 +102,7 @@ A curated collection of idiomatic design & application patterns for Go language.
 | Pattern | Description | Status |
 |:-------:|:----------- |:------:|
 | [Functional Options](/idiom/functional-options.md) | Allows creating clean APIs with sane defaults and idiomatic overrides | ✔ |
+| [Fluent interface](/idiom/fluent-interace.md) | Method for constructing object oriented APIs focused on better readability | ✔ |
 
 ## Anti-Patterns
 
