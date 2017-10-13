@@ -52,7 +52,7 @@ A curated collection of idiomatic design & application patterns for Go language.
 | Pattern | Description | Status |
 |:-------:|:----------- |:------:|
 | [Condition Variable](/synchronization/condition_variable.md) | Provides a mechanism for threads to temporarily give up access in order to wait for some condition | ✘ |
-| [Lock/Mutex](/synchronization/mutex.md) | Enforces mutual exclusion limit on a resource to gain exclusive access | ✘ |
+| [Lock/Mutex](/synchronization/mutex.md) | Enforces mutual exclusion limit on a resource to gain exclusive access | ✔ |
 | [Monitor](/synchronization/monitor.md) | Combination of mutex and condition variable patterns | ✘ |
 | [Read-Write Lock](/synchronization/read_write_lock.md) | Allows parallel read access, but only exclusive access on write operations to a resource | ✘ |
 | [Semaphore](/synchronization/semaphore.md) | Allows controlling access to a common resource | ✔ |
