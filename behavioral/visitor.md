@@ -4,6 +4,7 @@ Visitor behavioral design pattern provides a way to separate an algorithm from a
 It gives the ability to extend the existing object without modifying the object itself.
 
 ## Implementation
+Implementation of a visitor that can add functionality to the shape structures.
 
 ```go
 type Visitor interface {
@@ -34,7 +35,7 @@ func (l Line) accept(v Visitor) string {
 
 ## Usage
 ### JSON marshaller
-
+Using visitor to marshal shapes to JSON
 ```go
 type JsonVisitor struct {
 }
@@ -57,7 +58,7 @@ fmt.Println(line.accept(&jsonVisitor))
 ```
 
 ### XML marshaller
-
+Using visitor to marshal shapes to XML
 ```go
 type XmlVisitor struct {
 }
