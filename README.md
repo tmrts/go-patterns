@@ -45,7 +45,7 @@ A curated collection of idiomatic design & application patterns for Go language.
 | [State](/behavioral/state.md) | Encapsulates varying behavior for the same object based on its internal state | ✘ |
 | [Strategy](/behavioral/strategy.md) | Enables an algorithm's behavior to be selected at runtime | ✔ |
 | [Template](/behavioral/template.md) | Defines a skeleton class which defers some methods to subclasses | ✘ |
-| [Visitor](/behavioral/visitor.md) | Separates an algorithm from an object on which it operates | ✘ |
+| [Visitor](/behavioral/visitor.md) | Separates an algorithm from an object on which it operates | ✔ |
 
 ## Synchronization Patterns
 
