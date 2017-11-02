@@ -1,4 +1,4 @@
-package main
+package elastic_parallelism
 
 import (
 	"crypto/md5"
