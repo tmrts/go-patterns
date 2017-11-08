@@ -4,47 +4,59 @@ Decouples an interface from its implementation so that the two can vary independ
 ## Implementation
 
 ```go
+type Info struct {
+	Sender // who or which way to send information.        eg: QQ Wechat
+	MsgTag // the tag of msg.  just like log level tag.    eg: COMMON IMPORTANCE
+}
+
+func (i Info) Sending(to, msg string) {
+	msg = i.MsgTag(msg)
+	i.Sender.Send(to, msg)
+}
 
 // interface
-type Request interface {
-	HttpRequest() (*http.Request, error)
+
+type Sender interface {
+	Send(to, msg string)
 }
 
-type Client struct {
-	Client *http.Client
-}
+type MsgTag func(string) string
 
-func (c *Client) Query(req Request) (resp *http.Response, err error) {
-	httpreq,_:=req.HttpRequest()
-	resp, err = c.Client.Do(httpreq)
-	return
-}
 
 // implementation
-type BaiduRequest struct {
+
+type QQSender struct {
 }
 
-func (cdn *BaiduRequest) HttpRequest() (*http.Request,  error) {
-	return http.NewRequest("GET", "https://www.baidu.com", nil)
+func (QQSender) Send(to, msg string) {
+	fmt.Println("[QQ] send to " + to + " with message: " + msg)
 }
 
-// implementation
-type Googleequest struct {
+type WechatSender struct {
 }
 
-func (cdn *Googleequest) HttpRequest() (*http.Request, error) {
-	return http.NewRequest("GET", "https://www.google.com/?hl=zh-cn&gws_rd=ssl", nil)
+func (WechatSender) Send(to, msg string) {
+	fmt.Println("[Wechat] send to " + to + " with message: " + msg)
+}
+
+func ImportanceTag(msg string) string {
+	return "[IMPORTANCE] " + msg
+}
+
+func CommonTag(msg string) string {
+	return "[COMMON] " + msg
 }
 ```
 
 ## Usage
 ```go
-client := &Client{http.DefaultClient}
+info := &Info{MsgTag: ImportanceTag, Sender: QQSender{}}
+info.Sending("cbping", "hello world")
 
-baiduReq := &BaiduRequest{}
-fmt.Println(client.Query(baiduReq))
+info.Sender = WechatSender{}
+info.Sending("cbping", "hello world")
 
-googleReq := &Googleequest{}
-fmt.Println(client.Query(googleReq))
+info.MsgTag = CommonTag
+info.Sending("cbping", "hello world")
 ```
 
