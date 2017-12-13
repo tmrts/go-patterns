@@ -50,7 +50,7 @@ func Permissions(perms os.FileMode) Option {
 ```go
 package file
 
-func New(filepath string, setters ...Option) error {
+func New(filepath string, setters ...Option) (*os.File, error) {
 	// Default Options
 	args := &Options{
 		UID:         os.Getuid(),
@@ -66,16 +66,16 @@ func New(filepath string, setters ...Option) error {
 
 	f, err := os.OpenFile(filepath, args.Flags, args.Permissions)
 	if err != nil {
-		return err
+		return nil, err
 	} else {
 		defer f.Close()
 	}
 
 	if _, err := f.WriteString(args.Contents); err != nil {
-		return err
+		return nil, err
 	}
 
-	return f.Chown(args.UID, args.GID)
+	return f, f.Chown(args.UID, args.GID)
 }
 ```
 
