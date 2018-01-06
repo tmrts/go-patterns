@@ -10,7 +10,7 @@ Options implemented as a function set the state of that option.
 ```go
 package file
 
-type Options struct {
+type options struct {
 	UID         int
 	GID         int
 	Flags       int
@@ -18,28 +18,28 @@ type Options struct {
 	Permissions os.FileMode
 }
 
-type Option func(*Options)
+type Option func(*options)
 
 func UID(userID int) Option {
-	return func(args *Options) {
+	return func(args *options) {
 		args.UID = userID
 	}
 }
 
 func GID(groupID int) Option {
-	return func(args *Options) {
+	return func(args *options) {
 		args.GID = groupID
 	}
 }
 
 func Contents(c string) Option {
-	return func(args *Options) {
+	return func(args *options) {
 		args.Contents = c
 	}
 }
 
 func Permissions(perms os.FileMode) Option {
-	return func(args *Options) {
+	return func(args *options) {
 		args.Permissions = perms
 	}
 }
@@ -51,8 +51,8 @@ func Permissions(perms os.FileMode) Option {
 package file
 
 func New(filepath string, setters ...Option) error {
-	// Default Options
-	args := &Options{
+	// Default options
+	args := &options{
 		UID:         os.Getuid(),
 		GID:         os.Getgid(),
 		Contents:    "",
