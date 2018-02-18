@@ -1,16 +1,3 @@
-# Builder Pattern
-
-Builder pattern separates the construction of a complex object from its
-representation so that the same construction process can create different
-representations.
-
-In Go, normally a configuration struct is used to achieve the same behavior,
-however passing a struct to the builder method fills the code with boilerplate
-`if cfg.Field != nil {...}` checks.
-
-## Implementation
-
-```go
 package car
 
 import (
@@ -18,6 +5,8 @@ import (
 	"log"
 	"strings"
 )
+
+const Version = 1
 
 type (
 	// Color is string representation of Vihicle color
@@ -33,7 +22,7 @@ type (
 
 // Used constants definition
 
-// Type Wheels enum
+// Type WheelsType enum
 const (
 	SportsWheels Wheels = "sports"
 	SteelWheels         = "steel"
@@ -150,22 +139,3 @@ func (a *Assembly) Wheels(wheels Wheels) *Assembly {
 func (a Assembly) Build() Vihicle {
 	return a.v
 }
-```
-
-## Usage
-
-```go
-assembly := car.NewAssembly(&car.Car{}).Color(car.RedColor)
-
-familyCar := assembly.Wheels(car.SteelWheels).TopSpeed(50 * car.MPH).Build()
-familyCar.Drive()
-
-fmt.Printf("%#v\n", familyCar)
-fmt.Printf("%#s\n", familyCar)
-
-sportsCar := assembly.Wheels(car.SportsWheels).TopSpeed(150 * car.MPH).Build()
-sportsCar.Drive()
-
-fmt.Printf("%#v\n", sportsCar)
-fmt.Printf("%#s\n", sportsCar)
-```
