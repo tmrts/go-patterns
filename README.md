@@ -29,7 +29,7 @@ A curated collection of idiomatic design & application patterns for Go language.
 | [Composite](/structural/composite.md) | Encapsulates and provides access to a number of different objects | ✘ |
 | [Decorator](/structural/decorator.md) | Adds behavior to an object, statically or dynamically | ✔ |
 | [Facade](/structural/facade.md) | Uses one type as an API to a number of others | ✘ |
-| [Flyweight](/structural/flyweight.md) | Reuses existing instances of objects with similar/identical state to minimize resource usage | ✘ |
+| [Flyweight](https://github.com/nitesh420/go-patterns/blob/master/structural/flyweight.go) | Reuses existing instances of objects with similar/identical state to minimize resource usage | ✘ |
 | [Proxy](/structural/proxy.md) | Provides a surrogate for an object to control it's actions | ✔ |
 
 ## Behavioral Patterns
