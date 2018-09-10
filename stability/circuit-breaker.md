@@ -6,7 +6,7 @@ wires to heat up and combust, the circuit breaker design pattern is a fail-first
 mechanism that shuts down the circuit, request/response relationship or a
 service in the case of software development, to prevent bigger failures.
 
-**Note:** The words "circuit" and "service" are used synonymously throught this
+**Note:** The words "circuit" and "service" are used synonymously throughout this
 document.
 
 ## Implementation
