@@ -13,38 +13,80 @@ however passing a struct to the builder method fills the code with boilerplate
 ```go
 package car
 
+import (
+	"fmt"
+)
+
 type Speed float64
-
-const (
-    MPH Speed = 1
-    KPH       = 1.60934
-)
-
 type Color string
-
-const (
-    BlueColor  Color = "blue"
-    GreenColor       = "green"
-    RedColor         = "red"
-)
-
 type Wheels string
 
 const (
-    SportsWheels Wheels = "sports"
-    SteelWheels         = "steel"
+	MPH          Speed  = 1
+	KPH          Speed  = 1.60934
+	SportsWheels Wheels = "sports"
+	SteelWheels  Wheels = "steel"
+	BlueColor    Color  = "blue"
+	GreenColor   Color  = "green"
+	RedColor     Color  = "red"
 )
 
 type Builder interface {
-    Color(Color) Builder
-    Wheels(Wheels) Builder
-    TopSpeed(Speed) Builder
-    Build() Interface
+	Color(Color) Builder
+	Wheels(Wheels) Builder
+	TopSpeed(Speed) Builder
+	Build() Interface
 }
 
 type Interface interface {
-    Drive() error
-    Stop() error
+	Drive() error
+	Stop() error
+}
+
+type carBuilder struct {
+	speedOption Speed
+	color       Color
+	wheels      Wheels
+}
+
+func (c *car) Drive() error {
+	fmt.Println("VROOM")
+	return nil
+}
+
+func (c *car) Stop() error {
+	return nil
+}
+
+func (cb *carBuilder) Color(color Color) Builder {
+	cb.color = color
+	return cb
+}
+
+func (cb *carBuilder) Wheels(wheels Wheels) Builder {
+	cb.wheels = wheels
+	return cb
+}
+
+func (cb *carBuilder) TopSpeed(speed Speed) Builder {
+	cb.speedOption = speed
+	return cb
+}
+
+func (cb *carBuilder) Build() Interface {
+	return &car{
+		topSpeed: cb.speedOption,
+		color:    cb.color,
+	}
+}
+
+func NewBuilder() Builder {
+	return &carBuilder{}
+}
+
+type car struct {
+	topSpeed Speed
+	color    Color
 }
 ```
 
