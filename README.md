@@ -25,7 +25,7 @@ A curated collection of idiomatic design & application patterns for Go language.
 
 | Pattern | Description | Status |
 |:-------:|:----------- |:------:|
-| [Bridge](/structural/bridge.md) | Decouples an interface from its implementation so that the two can vary independently | ✘ |
+| [Bridge](/structural/bridge.md) | Decouples an interface from its implementation so that the two can vary independently | ✔ |
 | [Composite](/structural/composite.md) | Encapsulates and provides access to a number of different objects | ✘ |
 | [Decorator](/structural/decorator.md) | Adds behavior to an object, statically or dynamically | ✔ |
 | [Facade](/structural/facade.md) | Uses one type as an API to a number of others | ✘ |
