@@ -13,49 +13,93 @@ however passing a struct to the builder method fills the code with boilerplate
 ```go
 package car
 
+import (
+	"fmt"
+)
+
 type Speed float64
 
 const (
-    MPH Speed = 1
-    KPH       = 1.60934
+	MPH Speed = 1
+	KPH       = 1.60934
 )
 
 type Color string
 
 const (
-    BlueColor  Color = "blue"
-    GreenColor       = "green"
-    RedColor         = "red"
+	BlueColor  Color = "blue"
+	GreenColor       = "green"
+	RedColor         = "red"
 )
 
 type Wheels string
 
 const (
-    SportsWheels Wheels = "sports"
-    SteelWheels         = "steel"
+	SportsWheels Wheels = "sports"
+	SteelWheels         = "steel"
 )
 
 type Builder interface {
-    Color(Color) Builder
-    Wheels(Wheels) Builder
-    TopSpeed(Speed) Builder
-    Build() Interface
+	Paint(Color) Builder
+	Wheels(Wheels) Builder
+	TopSpeed(Speed) Builder
+	Build() Driver
 }
 
-type Interface interface {
-    Drive() error
-    Stop() error
+type Sedan struct {
+	color    Color
+	wheels   Wheels
+	topspeed Speed
+	driver   Driver
 }
+
+func (s Sedan) Paint(c Color) Builder     { s.color = Color(c); return s }
+func (s Sedan) Wheels(w Wheels) Builder   { s.wheels = w; return s }
+func (s Sedan) TopSpeed(sp Speed) Builder { s.topspeed = sp; return s }
+func (s Sedan) Build() Driver             { return s.driver }
+func NewBuilder(d Driver) Builder         { return Sedan{driver: d} }
+
+type Driver interface {
+	Drive() error;
+	Stop() error
+}
+
+type Terminator struct{}
+
+func (Terminator) Drive() error { fmt.Println("driving, I'll be baack"); return nil }
+func (Terminator) Stop() error  { fmt.Println("no problemo, stopping"); return nil }
+
+type Replicant struct{}
+
+func (Replicant) Drive() error { fmt.Println("driving, live in fear"); return nil }
+func (Replicant) Stop() error  { fmt.Println("that hurt, stopping"); return nil }
 ```
 
 ## Usage
 
 ```go
-assembly := car.NewBuilder().Paint(car.RedColor)
+package main
 
-familyCar := assembly.Wheels(car.SportsWheels).TopSpeed(50 * car.MPH).Build()
-familyCar.Drive()
+import "./car"
 
-sportsCar := assembly.Wheels(car.SteelWheels).TopSpeed(150 * car.MPH).Build()
-sportsCar.Drive()
+func main() {
+	assembly1 := car.NewBuilder(car.Terminator{}).Paint(car.RedColor)
+	familyCar := assembly1.Wheels(car.SteelWheels).TopSpeed(50 * car.MPH).Build()
+	familyCar.Drive()
+	familyCar.Stop()
+
+	assembly2 := car.NewBuilder(car.Replicant{}).Paint(car.BlueColor)
+	sportsCar := assembly2.Wheels(car.SportsWheels).TopSpeed(2 * 80 * car.KPH).Build()
+	sportsCar.Drive()
+	sportsCar.Stop()
+}
+```
+
+## Output
+
+```
+driving, I'll be baack
+no problemo, stopping
+driving, live in fear
+that hurt, stopping
 ```
