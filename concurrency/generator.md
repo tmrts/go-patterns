@@ -2,7 +2,7 @@
 
 [Generators](https://en.wikipedia.org/wiki/Generator_(computer_programming)) yields a sequence of values one at a time.
 
-## Implementation 
+## Implementation
 
 ```go
 func Count(start int, end int) chan int {
@@ -14,7 +14,7 @@ func Count(start int, end int) chan int {
             ch <- i
         }
 
-		close(ch)
+        close(ch)
 	}(ch)
 
 	return ch
