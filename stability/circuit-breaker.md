@@ -67,7 +67,7 @@ func Breaker(c Circuit, failureThreshold uint32) Circuit {
 
 	return func(ctx context) error {
 		if cnt.ConsecutiveFailures() >= failureThreshold {
-			canRetry := func(cnt Counter) {
+			canRetry := func(cnt Counter) bool {
 				backoffLevel := Cnt.ConsecutiveFailures() - failureThreshold
 
 				// Calculates when should the circuit breaker resume propagating requests
