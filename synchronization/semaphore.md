@@ -7,7 +7,7 @@ A semaphore is a synchronization pattern/primitive that imposes mutual exclusion
 package semaphore
 
 var (
-	ErrNoTickets      = errors.New("semaphore: could not aquire semaphore")
+	ErrNoTickets      = errors.New("semaphore: could not acquire semaphore")
 	ErrIllegalRelease = errors.New("semaphore: can't release the semaphore without acquiring it first")
 )
 
@@ -38,8 +38,6 @@ func (s *implementation) Release() error {
 	case <-time.After(s.timeout):
 		return ErrIllegalRelease
 	}
-
-	return nil
 }
 
 func New(tickets int, timeout time.Duration) Interface {
