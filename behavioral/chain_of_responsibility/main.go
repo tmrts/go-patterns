@@ -5,9 +5,13 @@ import (
 	"fmt"
 )
 
+type request struct {
+	value float64
+}
+
 //NumberProcessor has the processor method which will tell if the value is negative, positive or zero
 type NumberProcessor interface {
-	process(int)
+	process(request)
 }
 
 //ZeroHandler handles the value which is zero
@@ -26,26 +30,27 @@ type NegativeHandler struct {
 }
 
 //For returning zero if the value is zero.
-func (zero ZeroHandler) process(value int) {
-	if value == 0 {
+func (zero ZeroHandler) process(req request) {
+
+	if req.value == 0.0 {
 		fmt.Print("its zero")
 	} else {
-		zero.numberProcessor.process(value)
+		zero.numberProcessor.process(req)
 	}
 }
 
 //For returning its negative if the value is negative.
-func (negative NegativeHandler) process(value int) {
-	if value < 0 {
+func (negative NegativeHandler) process(req request) {
+	if req.value < 0 {
 		fmt.Print("its a negative number")
 	} else {
-		negative.numberProcessor.process(value)
+		negative.numberProcessor.process(req)
 	}
 }
 
 //For returning its positive if the value is positive.
-func (positve PositiveHandler) process(value int) {
-	if value > 0 {
+func (positve PositiveHandler) process(req request) {
+	if req.value > 0 {
 		fmt.Print("its a postitive number")
 	}
 }
@@ -53,7 +58,8 @@ func (positve PositiveHandler) process(value int) {
 func main() {
 	//initialising the chain of actions.
 	zeroHandler := ZeroHandler{NegativeHandler{PositiveHandler{}}}
-	zeroHandler.process(10)
-	zeroHandler.process(-19)
-	zeroHandler.process(0)
+
+	zeroHandler.process(request{10})
+	zeroHandler.process(request{-19.9})
+	zeroHandler.process(request{0})
 }
