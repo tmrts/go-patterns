@@ -66,7 +66,7 @@ A curated collection of idiomatic design & application patterns for Go language.
 | [Broadcast](/concurrency/broadcast.md) | Transfers a message to all recipients simultaneously | ✘ |
 | [Coroutines](/concurrency/coroutine.md) | Subroutines that allow suspending and resuming execution at certain locations | ✘ |
 | [Generators](/concurrency/generator.md) | Yields a sequence of values one at a time | ✔ |
-| [Reactor](/concurrency/reactor.md) | Demultiplexes service requests delivered concurrently to a service handler and dispatches them syncronously to the associated request handlers | ✘ |
+| [Reactor](/concurrency/reactor.md) | Demultiplexes service requests delivered concurrently to a service handler and dispatches them synchronously to the associated request handlers | ✘ |
 | [Parallelism](/concurrency/parallelism.md) | Completes large number of independent tasks | ✔ |
 | [Producer Consumer](/concurrency/producer_consumer.md) | Separates tasks from task executions | ✘ |
 
