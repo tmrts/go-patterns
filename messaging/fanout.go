@@ -2,12 +2,10 @@ package messaging
 
 import (
 	"context"
+	"go.uber.org/zap"
 	"io"
 	"sync"
 	"sync/atomic"
-
-	"bitbucket.org/sakariai/sakari/log"
-	"bitbucket.org/sakariai/sakari/log/field"
 )
 
 const (
@@ -17,6 +15,7 @@ const (
 
 var (
 	running uint32 = 0
+	log, _         = zap.NewDevelopment()
 )
 
 type Pipeline struct {
@@ -37,7 +36,7 @@ func (p *Pipeline) Start() {
 						writer = c
 					}
 					if c.debug {
-						log.Info("Worker receiving", field.Any("index", writer.index), field.Any("running", runningWorker), field.Any("no# workers", expectationWorkers))
+						log.Info("Worker receiving", zap.Any("index", writer.index), zap.Any("running", runningWorker), zap.Any("no# workers", expectationWorkers))
 					}
 					go writer.stream(val)
 				}
@@ -54,8 +53,9 @@ func (p *Pipeline) Dispatch(msg interface{}) {
 
 type DispatcherBuilder func() Dispatcher
 
-func NewPipeline(d DispatcherBuilder, ch chan interface{}, idle uint32, debug bool) *Pipeline {
+func NewPipeline(d DispatcherBuilder, idle uint32, debug bool) *Pipeline {
 	wk := make([]*worker, 0, MaxWorkers)
+	ch := make(chan interface{}, 4096)
 	for i := 0; i < MaxWorkers; i++ {
 		wk = append(wk,
 			&worker{
@@ -97,15 +97,15 @@ func (c *worker) stream(val interface{}) {
 		err := c.Before(ctx)
 
 		if err != nil {
-			log.Error("can not start worker", field.Error(err))
+			log.Error("can not start worker", zap.Error(err))
 		}
 		defer func(w *worker, cancel context.CancelFunc) {
 			if w.debug {
-				log.Info("Worker leaving", field.Any("index", w.index), field.Any("idle", w.idle))
+				log.Info("Worker leaving", zap.Any("index", w.index), zap.Any("idle", w.idle))
 			}
 			err := c.After()
 			if err != nil {
-				log.Error("can not finish track issue", field.Error(err))
+				log.Error("can not finish track issue", zap.Error(err))
 			}
 			cancel()
 			w.mutex.Unlock()
@@ -120,8 +120,8 @@ func (c *worker) stream(val interface{}) {
 					err := c.Process(msg)
 					if err != nil {
 						log.Error("can not process message",
-							field.Any("msg", &msg),
-							field.Error(err),
+							zap.Any("msg", &msg),
+							zap.Error(err),
 						)
 					}
 					if err == io.EOF {
@@ -135,7 +135,7 @@ func (c *worker) stream(val interface{}) {
 						return
 					}
 					if c.debug {
-						log.Info("Idle", field.Any("worker index", c.index), field.Any("idle", idle))
+						log.Info("Idle", zap.Any("worker index", c.index), zap.Any("idle", idle))
 					}
 				}
 			}
