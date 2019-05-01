@@ -14,13 +14,13 @@ const (
 )
 
 var (
-	running uint32 = 0
 	log, _         = zap.NewDevelopment()
 )
 
 type Pipeline struct {
 	workers []*worker
 	chain   chan interface{}
+	running *uint32
 }
 
 func (p *Pipeline) Start() {
@@ -29,7 +29,7 @@ func (p *Pipeline) Start() {
 		for {
 			for _, c := range cs {
 				expectationWorkers := uint32(len(ch)/(MaxQueueSize/MaxWorkers)) + 1
-				runningWorker := atomic.LoadUint32(&running)
+				runningWorker := atomic.LoadUint32(p.running)
 				if c.index > runningWorker+1 || c.index > expectationWorkers {
 					break
 				}
@@ -42,11 +42,11 @@ func (p *Pipeline) Start() {
 					go writer.stream(val)
 				}
 			}
-			}
 		}
 	}
+}
 
-	go distributeToChannels(p.chain, p.workers)
+go distributeToChannels(p.chain, p.workers)
 }
 
 func (p *Pipeline) Dispatch(msg interface{}) {
@@ -58,6 +58,7 @@ type DispatcherBuilder func() Dispatcher
 func NewPipeline(d DispatcherBuilder, idle uint32, debug bool) *Pipeline {
 	wk := make([]*worker, 0, MaxWorkers)
 	ch := make(chan interface{}, 4096)
+	pipe := &Pipeline{chain: ch, running: new(uint32)}
 	for i := 0; i < MaxWorkers; i++ {
 		wk = append(wk,
 			&worker{
@@ -67,9 +68,11 @@ func NewPipeline(d DispatcherBuilder, idle uint32, debug bool) *Pipeline {
 				debug:      debug,
 				idle:       idle,
 				Dispatcher: d(),
+				broker:     pipe.running,
 			})
 	}
-	return &Pipeline{workers: wk, chain: ch}
+	pipe.workers = wk
+	return pipe
 }
 
 type Dispatcher interface {
@@ -85,6 +88,7 @@ type worker struct {
 	chain   chan interface{}
 	debug   bool
 	idle    uint32
+	broker  *uint32
 	Dispatcher
 }
 
@@ -93,8 +97,8 @@ func (c *worker) stream(val interface{}) {
 	if !c.running {
 		c.mutex.Lock()
 		c.running = true
-		atomic.AddUint32(&running, 1)
-		defer atomic.AddUint32(&running, ^uint32(1-1))
+		atomic.AddUint32(c.broker, 1)
+		defer atomic.AddUint32(c.broker, ^uint32(1 - 1))
 		ctx, cancel := context.WithCancel(context.Background())
 		err := c.Before(ctx)
 
