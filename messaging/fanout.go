@@ -30,8 +30,8 @@ func (p *Pipeline) Start() {
 			if expectationWorkers > MaxWorkers {
 				expectationWorkers = expectationWorkers % MaxWorkers
 			}
-			for index, c := range pipe.workers {
-				if expectationWorkers < index {
+			for _, c := range pipe.workers {
+				if expectationWorkers < int(c.index) {
 					break
 				}
 				select {
