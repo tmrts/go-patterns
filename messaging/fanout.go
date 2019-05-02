@@ -3,7 +3,6 @@ package messaging
 import (
 	"context"
 	"go.uber.org/zap"
-	"io"
 	"sync"
 	"sync/atomic"
 )
@@ -116,9 +115,6 @@ func (c *worker) stream(val interface{}) {
 							zap.Any("msg", &msg),
 							zap.Error(err),
 						)
-					}
-					if err == io.EOF {
-						return
 					}
 				}
 			default:
