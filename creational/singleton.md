@@ -16,7 +16,7 @@ var (
 )
 
 func New() singleton {
-	if singleton == nil {
+	if instance == nil {
 		once.Do(func() {
 			instance = make(singleton)
 		})
