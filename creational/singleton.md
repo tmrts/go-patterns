@@ -16,9 +16,11 @@ var (
 )
 
 func New() singleton {
-	once.Do(func() {
-		instance = make(singleton)
-	})
+	if singleton == nil {
+		once.Do(func() {
+			instance = make(singleton)
+		})
+	}
 
 	return instance
 }
