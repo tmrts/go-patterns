@@ -50,7 +50,7 @@ func Permissions(perms os.FileMode) Option {
 ```go
 package file
 
-func New(filepath string, setters ...Option) error {
+func New(filepath string, setters ...Option) (*os.File, error) {
 	// Default Options
 	args := &Options{
 		UID:         os.Getuid(),
@@ -66,29 +66,39 @@ func New(filepath string, setters ...Option) error {
 
 	f, err := os.OpenFile(filepath, args.Flags, args.Permissions)
 	if err != nil {
-		return err
-	} else {
-		defer f.Close()
+		return nil, err
 	}
+	defer f.Close()
 
 	if _, err := f.WriteString(args.Contents); err != nil {
-		return err
+		return nil, err
 	}
 
-	return f.Chown(args.UID, args.GID)
+	f.Chown(args.UID, args.GID)
+	return f, nil
 }
 ```
 
 ## Usage
 
 ```go
-emptyFile, err := file.New("/tmp/empty.txt")
-if err != nil {
-    panic(err)
-}
+func main() {
+	emptyFile, err := file.New("/tmp/empty.txt")
+	if err != nil {
+		panic(err)
+	}
+	fmt.Printf("file %v created\n", emptyFile.Name())
 
-fillerFile, err := file.New("/tmp/file.txt", file.UID(1000), file.Contents("Lorem Ipsum Dolor Amet"))
-if err != nil {
-    panic(err)
+	fillerFile, err := file.New("/tmp/file.txt", file.UID(1000), file.Contents("Lorem Ipsum Dolor Amet"))
+	if err != nil {
+		panic(err)
+	}
+	fmt.Printf("file %v created\n", fillerFile.Name())
+
+	filePermissions, err := file.New("/tmp/file-permissions.txt", file.Permissions(0777), file.Contents("With Permissions 0777"))
+	if err != nil {
+		panic(err)
+	}
+	fmt.Printf("file %v created\n", filePermissions.Name())
 }
 ```
