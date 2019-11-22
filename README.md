@@ -115,6 +115,7 @@ To install, you will need gitbook.
 
 ```sh
 npm install -g gitbook-cli
+gitbook install
 ```
 
 Then you can build either html or pdf like so
