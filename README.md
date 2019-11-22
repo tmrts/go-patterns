@@ -108,3 +108,20 @@ A curated collection of idiomatic design & application patterns for Go language.
 | Pattern | Description | Status |
 |:-------:|:----------- |:------:|
 | [Cascading Failures](/anti-patterns/cascading_failures.md) | A failure in a system of interconnected parts in which the failure of a part causes a domino effect | ✘ |
+
+## Installation
+
+To install, you will need gitbook.
+
+```sh
+npm install -g gitbook-cli
+```
+
+Then you can build either html or pdf like so
+
+```sh
+# HTML
+gitbook build
+# PDF
+gitbook pdf
+```
