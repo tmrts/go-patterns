@@ -29,10 +29,10 @@ Given below is a simple lifecycle example on an object pool.
 p := pool.New(2)
 
 select {
-case obj := <-p:
+case obj := <-*p:
 	obj.Do( /*...*/ )
 
-	p <- obj
+	*p <- obj
 default:
 	// No more objects left — retry later or fail
 	return
