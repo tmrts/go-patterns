@@ -2,7 +2,7 @@
 
 * [Go Patterns](/README.md)
   * [Creational Patterns](/README.md#creational-patterns)
-    * [Abstract Factory](/creational/abstract_factory.md)
+    * [Abstract Factory](/creational/abstract-factory.md)
     * [Builder](/creational/builder.md)
     * [Factory Method](/creational/factory.md)
     * [Object Pool](/creational/object-pool.md)
