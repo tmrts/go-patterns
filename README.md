@@ -39,7 +39,7 @@ A curated collection of idiomatic design & application patterns for Go language.
 | [Chain of Responsibility](/behavioral/chain_of_responsibility.md) | Avoids coupling a sender to receiver by giving more than object a chance to handle the request | ✘ |
 | [Command](/behavioral/command.md) | Bundles a command and arguments to call later | ✘ |
 | [Mediator](/behavioral/mediator.md) | Connects objects and acts as a proxy | ✘ |
-| [Memento](/behavioral/memento.md) | Generate an opaque token that can be used to go back to a previous state | ✘ |
+| [Memento](/behavioral/memento.md) | Generate an opaque token that can be used to go back to a previous state | ✔ |
 | [Observer](/behavioral/observer.md) | Provide a callback for notification of events/changes to data | ✔ |
 | [Registry](/behavioral/registry.md) | Keep track of all subclasses of a given class | ✘ |
 | [State](/behavioral/state.md) | Encapsulates varying behavior for the same object based on its internal state | ✘ |
