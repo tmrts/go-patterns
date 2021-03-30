@@ -18,7 +18,7 @@ func LogDecorate(fn Object) Object {
 
 		log.Println("Execution is completed with the result", result)
 
-        return result
+        	return result
 	}
 }
 ```
