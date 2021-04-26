@@ -51,7 +51,7 @@ type Interface interface {
 ## Usage
 
 ```go
-assembly := car.NewBuilder().Paint(car.RedColor)
+assembly := car.NewBuilder().Color(car.RedColor)
 
 familyCar := assembly.Wheels(car.SportsWheels).TopSpeed(50 * car.MPH).Build()
 familyCar.Drive()
