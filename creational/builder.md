@@ -36,7 +36,7 @@ const (
 )
 
 type Builder interface {
-    Color(Color) Builder
+    Paint(Color) Builder
     Wheels(Wheels) Builder
     TopSpeed(Speed) Builder
     Build() Interface
