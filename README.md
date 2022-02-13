@@ -15,7 +15,7 @@ A curated collection of idiomatic design & application patterns for Go language.
 
 | Pattern | Description | Status |
 |:-------:|:----------- |:------:|
-| [Abstract Factory](/creational/abstract_factory.md) | Provides an interface for creating families of releated objects | ✘ |
+| [Abstract Factory](/creational/abstract_factory.md) | Provides an interface for creating families of releated objects | ✔ |
 | [Builder](/creational/builder.md) | Builds a complex object using simple objects | ✔ |
 | [Factory Method](/creational/factory.md) | Defers instantiation of an object to a specialized function for creating instances | ✔ |
 | [Object Pool](/creational/object-pool.md) | Instantiates and maintains a group of objects instances of the same type | ✔ |
@@ -26,7 +26,7 @@ A curated collection of idiomatic design & application patterns for Go language.
 | Pattern | Description | Status |
 |:-------:|:----------- |:------:|
 | [Bridge](/structural/bridge.md) | Decouples an interface from its implementation so that the two can vary independently | ✘ |
-| [Composite](/structural/composite.md) | Encapsulates and provides access to a number of different objects | ✘ |
+| [Composite](/structural/composite.md) | Encapsulates and provides access to a number of different objects | ✔ |
 | [Decorator](/structural/decorator.md) | Adds behavior to an object, statically or dynamically | ✔ |
 | [Facade](/structural/facade.md) | Uses one type as an API to a number of others | ✘ |
 | [Flyweight](/structural/flyweight.md) | Reuses existing instances of objects with similar/identical state to minimize resource usage | ✘ |
@@ -42,7 +42,7 @@ A curated collection of idiomatic design & application patterns for Go language.
 | [Memento](/behavioral/memento.md) | Generate an opaque token that can be used to go back to a previous state | ✘ |
 | [Observer](/behavioral/observer.md) | Provide a callback for notification of events/changes to data | ✔ |
 | [Registry](/behavioral/registry.md) | Keep track of all subclasses of a given class | ✘ |
-| [State](/behavioral/state.md) | Encapsulates varying behavior for the same object based on its internal state | ✘ |
+| [State](/behavioral/state.md) | Encapsulates varying behavior for the same object based on its internal state | ✔ |
 | [Strategy](/behavioral/strategy.md) | Enables an algorithm's behavior to be selected at runtime | ✔ |
 | [Template](/behavioral/template.md) | Defines a skeleton class which defers some methods to subclasses | ✘ |
 | [Visitor](/behavioral/visitor.md) | Separates an algorithm from an object on which it operates | ✘ |
