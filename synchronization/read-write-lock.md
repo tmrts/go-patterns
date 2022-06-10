@@ -46,7 +46,7 @@ func (r *Router) Query(socket Socket) *Peer {
 
 // Add create new socket connection association
 func (r *Router) Add(peer *Peer) {
-	// Lock write/read table while add operation
+	// Lock write table while add operation
 	// A blocked Lock call excludes new readers from acquiring the lock.
 	r.RWMutex.Lock()
 	defer r.RWMutex.Unlock()
@@ -55,7 +55,7 @@ func (r *Router) Add(peer *Peer) {
 
 // Delete removes a connection from router
 func (r *Router) Delete(peer *Peer) {
-	// Lock write/read table while delete operation
+	// Lock write table while delete operation
 	// A blocked Lock call excludes new readers from acquiring the lock.
 	r.RWMutex.Lock()
 	defer r.RWMutex.Unlock()
@@ -100,10 +100,10 @@ go func(r *Router){
 go func(r *Router){
 	// ...some logic here
 	// reading operation 1
-	connection := router.Query("192.168.1.1:8080")
+	connection := r.Query("192.168.1.1:8080")
 	//... more code here 
 	// reading operation 2
-	otherQuery:= router.Query("192.168.1.1:8081")
+	otherQuery:= r.Query("192.168.1.1:8081")
 	// read locks are like counters.. until counter = 0 Write can be acquired
 }(router)
 
