@@ -100,11 +100,11 @@ go func(r *Router){
 // ...some code here
 
 // reading operation 1
-connection := r.Query("192.168.1.1:8080")
+connection := router.Query("192.168.1.1:8080")
 	
 //... more code here 
 // reading operation 2
-otherQuery:= r.Query("192.168.1.1:8081")
+otherQuery:= router.Query("192.168.1.1:8081")
 // read locks are like counters.. until counter = 0 Write can be acquired
 
 ```
