@@ -49,8 +49,8 @@ func (r *Router) Add(peer *Peer) {
 	// Lock write table while add operation
 	// A blocked Lock call excludes new readers from acquiring the lock.
 	r.RWMutex.Lock()
-	defer r.RWMutex.Unlock()
 	r.table[peer.Socket()] = peer
+        r.RWMutex.Unlock()
 }
 
 // Delete removes a connection from router
@@ -58,8 +58,8 @@ func (r *Router) Delete(peer *Peer) {
 	// Lock write table while delete operation
 	// A blocked Lock call excludes new readers from acquiring the lock.
 	r.RWMutex.Lock()
-	defer r.RWMutex.Unlock()
 	delete(r.table, peer.Socket())
+        r.RWMutex.Unlock()
 }
 ```
 
