@@ -4,4 +4,4 @@
 
 # Implementation and Example
 
-An example showing implementation and usage can be found in [bounded_parallelism.go](bounded_parallelism.go).
+An example showing implementation and usage can be found in [bounded_parallelism.go](./bounded_parrallelism/bounded_parallelism.go).

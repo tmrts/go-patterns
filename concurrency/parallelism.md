@@ -4,4 +4,4 @@
 
 # Implementation and Example
 
-An example showing implementation and usage can be found in [parallelism.go](parallelism.go).
+An example showing implementation and usage can be found in [parallelism.go](./parrallelism/parallelism.go).
