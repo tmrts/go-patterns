@@ -20,6 +20,7 @@ A curated collection of idiomatic design & application patterns for Go language.
 | [Factory Method](/creational/factory.md) | Defers instantiation of an object to a specialized function for creating instances | ✔ |
 | [Object Pool](/creational/object-pool.md) | Instantiates and maintains a group of objects instances of the same type | ✔ |
 | [Singleton](/creational/singleton.md) | Restricts instantiation of a type to one object | ✔ |
+| [Lazy Initialisation](/creational/lazy-initialisation.md) | Defer creation of object until actually needed | ✔ |
 
 ## Structural Patterns
 
